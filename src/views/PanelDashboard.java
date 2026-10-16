@@ -26,19 +26,353 @@ public class PanelDashboard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        lblSelamatDatang = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        pnlTotalSaldo = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        pnlPemasukan = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        pnlPengeluaran = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        pnlTotalTunggakan = new javax.swing.JPanel();
+        jPanel36 = new javax.swing.JPanel();
+        jPanel37 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel38 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel5.setBackground(new java.awt.Color(240, 243, 247));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 243, 247), 20));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(240, 243, 247));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1006, 210));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel4.setBackground(new java.awt.Color(240, 243, 247));
+        jPanel4.setPreferredSize(new java.awt.Dimension(1006, 50));
+
+        lblSelamatDatang.setFont(new java.awt.Font("Plus Jakarta Text", 1, 18)); // NOI18N
+        lblSelamatDatang.setText("Dashboard");
+
+        jLabel1.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Ringkasan keuangan kas kelas");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSelamatDatang)
+                    .addComponent(jLabel1))
+                .addContainerGap(824, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSelamatDatang)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+
+        jPanel6.setBackground(new java.awt.Color(240, 243, 247));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 0, 20, 0));
+        jPanel6.setLayout(new java.awt.GridLayout(1, 4, 20, 0));
+
+        pnlTotalSaldo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
+        pnlTotalSaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlTotalSaldo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlTotalSaldoMouseClicked(evt);
+            }
+        });
+        pnlTotalSaldo.setLayout(new java.awt.BorderLayout());
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setPreferredSize(new java.awt.Dimension(141, 50));
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Dompet.png"))); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel10.add(jLabel3, java.awt.BorderLayout.CENTER);
+
+        jPanel9.add(jPanel10, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jLabel4.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setText("Total saldo");
+        jLabel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel2.add(jLabel4, java.awt.BorderLayout.PAGE_START);
+
+        jLabel5.setFont(new java.awt.Font("Plus Jakarta Text", 1, 12)); // NOI18N
+        jLabel5.setText("Rp 2.450.000");
+        jLabel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jLabel5.setPreferredSize(new java.awt.Dimension(37, 30));
+        jPanel2.add(jLabel5, java.awt.BorderLayout.PAGE_END);
+
+        jPanel9.add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        pnlTotalSaldo.add(jPanel9, java.awt.BorderLayout.CENTER);
+
+        jPanel6.add(pnlTotalSaldo);
+
+        pnlPemasukan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
+        pnlPemasukan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlPemasukan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlPemasukanMouseClicked(evt);
+            }
+        });
+        pnlPemasukan.setLayout(new java.awt.BorderLayout());
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setPreferredSize(new java.awt.Dimension(141, 50));
+        jPanel12.setLayout(new java.awt.BorderLayout());
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Icon pemasukan.png"))); // NOI18N
+        jLabel9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel12.add(jLabel9, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(jPanel12, java.awt.BorderLayout.PAGE_START);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        jLabel10.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel10.setText("Pemasukan Bulan Ini");
+        jLabel10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel7.add(jLabel10, java.awt.BorderLayout.PAGE_START);
+
+        jLabel13.setFont(new java.awt.Font("Plus Jakarta Text", 1, 12)); // NOI18N
+        jLabel13.setText("Rp 1.200.000");
+        jLabel13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jLabel13.setPreferredSize(new java.awt.Dimension(37, 30));
+        jPanel7.add(jLabel13, java.awt.BorderLayout.PAGE_END);
+
+        jPanel11.add(jPanel7, java.awt.BorderLayout.CENTER);
+
+        pnlPemasukan.add(jPanel11, java.awt.BorderLayout.CENTER);
+
+        jPanel6.add(pnlPemasukan);
+
+        pnlPengeluaran.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
+        pnlPengeluaran.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlPengeluaran.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlPengeluaranMouseClicked(evt);
+            }
+        });
+        pnlPengeluaran.setLayout(new java.awt.BorderLayout());
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel28.setPreferredSize(new java.awt.Dimension(141, 50));
+        jPanel28.setLayout(new java.awt.BorderLayout());
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Icon pengeluaran.png"))); // NOI18N
+        jLabel17.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel28.add(jLabel17, java.awt.BorderLayout.CENTER);
+
+        jPanel13.add(jPanel28, java.awt.BorderLayout.PAGE_START);
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jLabel18.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel18.setText("Pengeluaran Bulan Ini");
+        jLabel18.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel8.add(jLabel18, java.awt.BorderLayout.PAGE_START);
+
+        jLabel19.setFont(new java.awt.Font("Plus Jakarta Text", 1, 12)); // NOI18N
+        jLabel19.setText("Rp 350.000");
+        jLabel19.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jLabel19.setPreferredSize(new java.awt.Dimension(37, 30));
+        jPanel8.add(jLabel19, java.awt.BorderLayout.PAGE_END);
+
+        jPanel13.add(jPanel8, java.awt.BorderLayout.CENTER);
+
+        pnlPengeluaran.add(jPanel13, java.awt.BorderLayout.CENTER);
+
+        jPanel6.add(pnlPengeluaran);
+
+        pnlTotalTunggakan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
+        pnlTotalTunggakan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pnlTotalTunggakan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlTotalTunggakanMouseClicked(evt);
+            }
+        });
+        pnlTotalTunggakan.setLayout(new java.awt.BorderLayout());
+
+        jPanel36.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel36.setLayout(new java.awt.BorderLayout());
+
+        jPanel37.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel37.setPreferredSize(new java.awt.Dimension(141, 50));
+        jPanel37.setLayout(new java.awt.BorderLayout());
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Icon Tunggakan.png"))); // NOI18N
+        jLabel20.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel37.add(jLabel20, java.awt.BorderLayout.CENTER);
+
+        jPanel36.add(jPanel37, java.awt.BorderLayout.PAGE_START);
+
+        jPanel38.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel38.setLayout(new java.awt.BorderLayout());
+
+        jLabel21.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel21.setText("Total Tunggakan");
+        jLabel21.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jPanel38.add(jLabel21, java.awt.BorderLayout.PAGE_START);
+
+        jLabel22.setFont(new java.awt.Font("Plus Jakarta Text", 1, 12)); // NOI18N
+        jLabel22.setText("Rp 180.000");
+        jLabel22.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jLabel22.setPreferredSize(new java.awt.Dimension(37, 30));
+        jPanel38.add(jLabel22, java.awt.BorderLayout.PAGE_END);
+
+        jPanel36.add(jPanel38, java.awt.BorderLayout.CENTER);
+
+        pnlTotalTunggakan.add(jPanel36, java.awt.BorderLayout.CENTER);
+
+        jPanel6.add(pnlTotalTunggakan);
+
+        jPanel1.add(jPanel6, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
+            .addGap(0, 1046, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 737, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void pnlTotalSaldoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTotalSaldoMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_pnlTotalSaldoMouseClicked
+
+    private void pnlPemasukanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPemasukanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlPemasukanMouseClicked
+
+    private void pnlPengeluaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlPengeluaranMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlPengeluaranMouseClicked
+
+    private void pnlTotalTunggakanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTotalTunggakanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlTotalTunggakanMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lblSelamatDatang;
+    private javax.swing.JPanel pnlPemasukan;
+    private javax.swing.JPanel pnlPengeluaran;
+    private javax.swing.JPanel pnlTotalSaldo;
+    private javax.swing.JPanel pnlTotalTunggakan;
     // End of variables declaration//GEN-END:variables
 }
