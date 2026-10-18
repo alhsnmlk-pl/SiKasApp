@@ -40,17 +40,17 @@ public class FrameMain extends javax.swing.JFrame {
 
         for (JButton b : menu) {
             String gaya = "arc:24; borderWidth:0; focusWidth:0; innerFocusWidth:0;"
-                    + "selectedBackground:#FFFFFF; selectedForeground:#09388B;"
-                    + "pressedBackground:#09388B;";
+                    + "selectedBackground:#FFFFFF; selectedForeground:#0D47A0;"
+                    + "pressedBackground:#0D47A0;";
 
             if (b == active) {
                 b.setSelected(true);
                 b.putClientProperty("FlatLaf.style", gaya
-                        + "background:#FFFFFF; foreground:#09388B; hoverBackground:#FFFFFF;");
+                        + "background:#FFFFFF; foreground:#0D47A0; hoverBackground:#FFFFFF;");
             } else {
                 b.setSelected(false);
                 b.putClientProperty("FlatLaf.style", gaya
-                        + "background:#09388B; foreground:#FFFFFF; hoverBackground:#09388B;");
+                        + "background:#0D47A0; foreground:#FFFFFF; hoverBackground:#0D47A0;");
             }
         }
     }
@@ -96,9 +96,9 @@ public class FrameMain extends javax.swing.JFrame {
         sidebarContainer.setPreferredSize(new java.awt.Dimension(256, 720));
         sidebarContainer.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(9, 56, 139));
+        jPanel1.setBackground(new java.awt.Color(13, 71, 160));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(9, 56, 139));
+        jPanel1.setForeground(new java.awt.Color(13, 71, 160));
         jPanel1.setPreferredSize(new java.awt.Dimension(64, 100));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/lblWallet.png"))); // NOI18N
@@ -139,7 +139,7 @@ public class FrameMain extends javax.swing.JFrame {
 
         sidebarContainer.add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jPanel3.setBackground(new java.awt.Color(9, 56, 139));
+        jPanel3.setBackground(new java.awt.Color(13, 71, 160));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 20, 32, 20));
         jPanel3.setMinimumSize(new java.awt.Dimension(100, 120));
         jPanel3.setPreferredSize(new java.awt.Dimension(256, 120));
@@ -242,16 +242,16 @@ public class FrameMain extends javax.swing.JFrame {
 
         sidebarContainer.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
-        jPanel4.setBackground(new java.awt.Color(9, 56, 139));
+        jPanel4.setBackground(new java.awt.Color(13, 71, 160));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        jPanel6.setBackground(new java.awt.Color(9, 56, 139));
+        jPanel6.setBackground(new java.awt.Color(13, 71, 160));
         jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 30, 1, 30));
         jPanel6.setMinimumSize(new java.awt.Dimension(135, 300));
         jPanel6.setPreferredSize(new java.awt.Dimension(256, 375));
         jPanel6.setLayout(new java.awt.GridLayout(7, 1, 8, 8));
 
-        btnDashboard.setBackground(new java.awt.Color(9, 56, 139));
+        btnDashboard.setBackground(new java.awt.Color(13, 71, 160));
         btnDashboard.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
         btnDashboard.setForeground(new java.awt.Color(255, 255, 255));
         btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconDashboard.png"))); // NOI18N
@@ -266,7 +266,7 @@ public class FrameMain extends javax.swing.JFrame {
         btnDashboard.addActionListener(this::btnDashboardActionPerformed);
         jPanel6.add(btnDashboard);
 
-        btnMhs.setBackground(new java.awt.Color(9, 56, 139));
+        btnMhs.setBackground(new java.awt.Color(13, 71, 160));
         btnMhs.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
         btnMhs.setForeground(new java.awt.Color(255, 255, 255));
         btnMhs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconMahasiswa.png"))); // NOI18N
@@ -281,7 +281,7 @@ public class FrameMain extends javax.swing.JFrame {
         btnMhs.addActionListener(this::btnMhsActionPerformed);
         jPanel6.add(btnMhs);
 
-        btnPemasukan.setBackground(new java.awt.Color(9, 56, 139));
+        btnPemasukan.setBackground(new java.awt.Color(13, 71, 160));
         btnPemasukan.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
         btnPemasukan.setForeground(new java.awt.Color(255, 255, 255));
         btnPemasukan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPemasukan.png"))); // NOI18N
@@ -294,7 +294,7 @@ public class FrameMain extends javax.swing.JFrame {
         btnPemasukan.addActionListener(this::btnPemasukanActionPerformed);
         jPanel6.add(btnPemasukan);
 
-        btnBayarKas.setBackground(new java.awt.Color(9, 56, 139));
+        btnBayarKas.setBackground(new java.awt.Color(13, 71, 160));
         btnBayarKas.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
         btnBayarKas.setForeground(new java.awt.Color(255, 255, 255));
         btnBayarKas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPembayaran.png"))); // NOI18N
@@ -307,7 +307,7 @@ public class FrameMain extends javax.swing.JFrame {
         btnBayarKas.addActionListener(this::btnBayarKasActionPerformed);
         jPanel6.add(btnBayarKas);
 
-        btnPengeluaran.setBackground(new java.awt.Color(9, 56, 139));
+        btnPengeluaran.setBackground(new java.awt.Color(13, 71, 160));
         btnPengeluaran.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
         btnPengeluaran.setForeground(new java.awt.Color(255, 255, 255));
         btnPengeluaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPengeluaran.png"))); // NOI18N
@@ -320,7 +320,7 @@ public class FrameMain extends javax.swing.JFrame {
         btnPengeluaran.addActionListener(this::btnPengeluaranActionPerformed);
         jPanel6.add(btnPengeluaran);
 
-        btnLaporan.setBackground(new java.awt.Color(9, 56, 139));
+        btnLaporan.setBackground(new java.awt.Color(13, 71, 160));
         btnLaporan.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
         btnLaporan.setForeground(new java.awt.Color(255, 255, 255));
         btnLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconLaporan.png"))); // NOI18N
@@ -333,7 +333,7 @@ public class FrameMain extends javax.swing.JFrame {
         btnLaporan.addActionListener(this::btnLaporanActionPerformed);
         jPanel6.add(btnLaporan);
 
-        btnPengguna.setBackground(new java.awt.Color(9, 56, 139));
+        btnPengguna.setBackground(new java.awt.Color(13, 71, 160));
         btnPengguna.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
         btnPengguna.setForeground(new java.awt.Color(255, 255, 255));
         btnPengguna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPengguna.png"))); // NOI18N

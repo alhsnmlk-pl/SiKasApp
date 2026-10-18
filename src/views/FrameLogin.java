@@ -46,7 +46,6 @@ public class FrameLogin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -182,7 +181,7 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(104, 121, 144));
         jLabel13.setText("Silakan  masuk  dengan  akun  Anda");
 
-        jButton1.setBackground(new java.awt.Color(24, 117, 209));
+        jButton1.setBackground(new java.awt.Color(13, 71, 160));
         jButton1.setFont(new java.awt.Font("Plus Jakarta Text", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Login");
