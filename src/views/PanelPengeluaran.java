@@ -25,20 +25,314 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
+        panelHeader = new javax.swing.JPanel();
+        panelJudul = new javax.swing.JPanel();
+        lblJudul = new javax.swing.JLabel();
+        lblSubJudul = new javax.swing.JLabel();
+        panelAksi = new javax.swing.JPanel();
+        txtPencarian = new javax.swing.JTextField();
+        btnNotifikasi = new javax.swing.JButton();
+        panelKonten = new javax.swing.JPanel();
+        panelTambahPengeluaran = new javax.swing.JPanel();
+        lblTambahPengeluaran = new javax.swing.JLabel();
+        panelForm = new javax.swing.JPanel();
+        lblTanggal = new javax.swing.JLabel();
+        txtTanggal = new javax.swing.JTextField();
+        lblKategori = new javax.swing.JLabel();
+        cmbKategori = new javax.swing.JComboBox<>();
+        lblJumlah = new javax.swing.JLabel();
+        txtJumlah = new javax.swing.JTextField();
+        lblKeterangan = new javax.swing.JLabel();
+        txtKeterangan = new javax.swing.JTextField();
+        panelTombol = new javax.swing.JPanel();
+        btnHapus = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        panelRiwayatPengeluaran = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        panelHeaderRiwayat = new javax.swing.JPanel();
+        lblRiwayatPengeluaran = new javax.swing.JLabel();
+        lblTotalPengeluaran = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(240, 244, 252));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(24, 24, 24, 24));
+        setLayout(new java.awt.BorderLayout());
+
+        panelHeader.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 16, 0));
+        panelHeader.setOpaque(false);
+        panelHeader.setLayout(new java.awt.BorderLayout());
+
+        panelJudul.setLayout(new javax.swing.BoxLayout(panelJudul, javax.swing.BoxLayout.Y_AXIS));
+
+        lblJudul.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
+        lblJudul.setText("Pengeluaran");
+        lblJudul.setPreferredSize(new java.awt.Dimension(350, 36));
+        panelJudul.add(lblJudul);
+
+        lblSubJudul.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lblSubJudul.setText("Catat semua pengeluaran kas kelas");
+        lblSubJudul.setPreferredSize(new java.awt.Dimension(400, 22));
+        panelJudul.add(lblSubJudul);
+
+        panelHeader.add(panelJudul, java.awt.BorderLayout.WEST);
+
+        txtPencarian.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtPencarian.setForeground(new java.awt.Color(114, 114, 114));
+        txtPencarian.setText("Cari di aplikasi");
+        txtPencarian.setPreferredSize(new java.awt.Dimension(280, 40));
+        txtPencarian.addActionListener(this::txtPencarianActionPerformed);
+        panelAksi.add(txtPencarian);
+
+        btnNotifikasi.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnNotifikasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-notification-30.png"))); // NOI18N
+        btnNotifikasi.setPreferredSize(new java.awt.Dimension(40, 40));
+        panelAksi.add(btnNotifikasi);
+
+        panelHeader.add(panelAksi, java.awt.BorderLayout.EAST);
+
+        add(panelHeader, java.awt.BorderLayout.NORTH);
+
+        panelKonten.setOpaque(false);
+        panelKonten.setLayout(new java.awt.BorderLayout(0, 16));
+
+        panelTambahPengeluaran.setBackground(new java.awt.Color(255, 255, 255));
+        panelTambahPengeluaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 24, 20, 24));
+        panelTambahPengeluaran.setPreferredSize(new java.awt.Dimension(972, 182));
+        panelTambahPengeluaran.setLayout(new java.awt.BorderLayout());
+
+        lblTambahPengeluaran.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblTambahPengeluaran.setText("Tambah Pengeluaran");
+        lblTambahPengeluaran.setPreferredSize(new java.awt.Dimension(300, 24));
+        panelTambahPengeluaran.add(lblTambahPengeluaran, java.awt.BorderLayout.NORTH);
+
+        panelForm.setBackground(new java.awt.Color(255, 255, 255));
+        panelForm.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 0, 12, 0));
+        panelForm.setLayout(new java.awt.GridBagLayout());
+
+        lblTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblTanggal.setText("Tanggal");
+        lblTanggal.setPreferredSize(new java.awt.Dimension(130, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
+        panelForm.add(lblTanggal, gridBagConstraints);
+
+        txtTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtTanggal.setText("10/10/2026");
+        txtTanggal.setPreferredSize(new java.awt.Dimension(138, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
+        panelForm.add(txtTanggal, gridBagConstraints);
+
+        lblKategori.setText("Kategori");
+        lblKategori.setPreferredSize(new java.awt.Dimension(160, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
+        panelForm.add(lblKategori, gridBagConstraints);
+
+        cmbKategori.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perlengkapan", "Fotokopi", "Kebersihan", "Konsumsi", "Lainnya" }));
+        cmbKategori.setPreferredSize(new java.awt.Dimension(164, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
+        panelForm.add(cmbKategori, gridBagConstraints);
+
+        lblJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblJumlah.setText("Jumlah");
+        lblJumlah.setPreferredSize(new java.awt.Dimension(140, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
+        panelForm.add(lblJumlah, gridBagConstraints);
+
+        txtJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtJumlah.setText("25000");
+        txtJumlah.setPreferredSize(new java.awt.Dimension(146, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
+        panelForm.add(txtJumlah, gridBagConstraints);
+
+        lblKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblKeterangan.setText("Keterangan");
+        lblKeterangan.setPreferredSize(new java.awt.Dimension(250, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.35;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 0);
+        panelForm.add(lblKeterangan, gridBagConstraints);
+
+        txtKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtKeterangan.setText("Spidol papan tulis 2 pcs");
+        txtKeterangan.setPreferredSize(new java.awt.Dimension(450, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.35;
+        panelForm.add(txtKeterangan, gridBagConstraints);
+
+        panelTambahPengeluaran.add(panelForm, java.awt.BorderLayout.CENTER);
+
+        panelTombol.setBackground(new java.awt.Color(255, 255, 255));
+        panelTombol.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnHapus.setBackground(new java.awt.Color(253, 232, 232));
+        btnHapus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(220, 38, 38));
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-trash-20 (1).png"))); // NOI18N
+        btnHapus.setText("Hapus");
+        btnHapus.setFocusPainted(false);
+        btnHapus.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnHapus);
+
+        btnUbah.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnUbah.setForeground(new java.awt.Color(30, 41, 59));
+        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-pencil-20.png"))); // NOI18N
+        btnUbah.setText("Ubah");
+        btnUbah.setFocusPainted(false);
+        btnUbah.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnUbah);
+
+        btnSimpan.setBackground(new java.awt.Color(21, 115, 214));
+        btnSimpan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
+        btnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Vector (1).png"))); // NOI18N
+        btnSimpan.setText("Simpan");
+        btnSimpan.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnSimpan);
+
+        panelTambahPengeluaran.add(panelTombol, java.awt.BorderLayout.SOUTH);
+
+        panelKonten.add(panelTambahPengeluaran, java.awt.BorderLayout.NORTH);
+
+        panelRiwayatPengeluaran.setBackground(new java.awt.Color(255, 255, 255));
+        panelRiwayatPengeluaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 24, 20, 24));
+        panelRiwayatPengeluaran.setPreferredSize(new java.awt.Dimension(972, 344));
+        panelRiwayatPengeluaran.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(952, 280));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "TANGGAL", "KATEGORI", "KETERANGAN", "JUMLAH"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTable1.setRowHeight(40);
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setHeaderValue("TANGGAL");
+            jTable1.getColumnModel().getColumn(1).setHeaderValue("KATEGORI");
+            jTable1.getColumnModel().getColumn(2).setHeaderValue("KETERANGAN");
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("JUMLAH");
+        }
+
+        panelRiwayatPengeluaran.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        panelHeaderRiwayat.setBackground(new java.awt.Color(255, 255, 255));
+        panelHeaderRiwayat.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 12, 1));
+        panelHeaderRiwayat.setLayout(new java.awt.BorderLayout());
+
+        lblRiwayatPengeluaran.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblRiwayatPengeluaran.setText("Riwayat Pengeluaran");
+        lblRiwayatPengeluaran.setPreferredSize(new java.awt.Dimension(300, 28));
+        panelHeaderRiwayat.add(lblRiwayatPengeluaran, java.awt.BorderLayout.WEST);
+
+        lblTotalPengeluaran.setBackground(new java.awt.Color(253, 232, 232));
+        lblTotalPengeluaran.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblTotalPengeluaran.setForeground(new java.awt.Color(220, 38, 38));
+        lblTotalPengeluaran.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTotalPengeluaran.setText("Total Rp 200.000");
+        lblTotalPengeluaran.setPreferredSize(new java.awt.Dimension(150, 28));
+        panelHeaderRiwayat.add(lblTotalPengeluaran, java.awt.BorderLayout.EAST);
+
+        panelRiwayatPengeluaran.add(panelHeaderRiwayat, java.awt.BorderLayout.NORTH);
+
+        panelKonten.add(panelRiwayatPengeluaran, java.awt.BorderLayout.CENTER);
+
+        add(panelKonten, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPencarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPencarianActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnNotifikasi;
+    private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnUbah;
+    private javax.swing.JComboBox<String> cmbKategori;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblJudul;
+    private javax.swing.JLabel lblJumlah;
+    private javax.swing.JLabel lblKategori;
+    private javax.swing.JLabel lblKeterangan;
+    private javax.swing.JLabel lblRiwayatPengeluaran;
+    private javax.swing.JLabel lblSubJudul;
+    private javax.swing.JLabel lblTambahPengeluaran;
+    private javax.swing.JLabel lblTanggal;
+    private javax.swing.JLabel lblTotalPengeluaran;
+    private javax.swing.JPanel panelAksi;
+    private javax.swing.JPanel panelForm;
+    private javax.swing.JPanel panelHeader;
+    private javax.swing.JPanel panelHeaderRiwayat;
+    private javax.swing.JPanel panelJudul;
+    private javax.swing.JPanel panelKonten;
+    private javax.swing.JPanel panelRiwayatPengeluaran;
+    private javax.swing.JPanel panelTambahPengeluaran;
+    private javax.swing.JPanel panelTombol;
+    private javax.swing.JTextField txtJumlah;
+    private javax.swing.JTextField txtKeterangan;
+    private javax.swing.JTextField txtPencarian;
+    private javax.swing.JTextField txtTanggal;
     // End of variables declaration//GEN-END:variables
 }
