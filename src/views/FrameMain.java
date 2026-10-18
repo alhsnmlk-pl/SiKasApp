@@ -8,6 +8,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.ui.FlatLineBorder;
 import java.awt.Color;
 import java.awt.Insets;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -26,11 +27,32 @@ public class FrameMain extends javax.swing.JFrame {
     public FrameMain() {
         initComponents();
         panelLengkung(userLogContainer);
+        setActiveMenu(btnDashboard);
     }
     
     void panelLengkung(JPanel p) {
         p.setBorder(new FlatLineBorder(new Insets(0, 0, 0, 0),Color.decode("#1565C0"),0f,32));
-        lblUser.setBorder(new FlatLineBorder(new Insets(0, 0, 0, 0),Color.decode("#FFFFF"),0f,100));
+        JPanel97.setBorder(new FlatLineBorder(new Insets(0, 0, 0, 0),Color.decode("#FFFFF"),0f,100));
+    }
+
+    void setActiveMenu(JButton active) {
+        JButton[] menu = {btnDashboard, btnMhs, btnPemasukan, btnBayarKas, btnPengeluaran, btnLaporan, btnPengguna};
+
+        for (JButton b : menu) {
+            String gaya = "arc:24; borderWidth:0; focusWidth:0; innerFocusWidth:0;"
+                    + "selectedBackground:#FFFFFF; selectedForeground:#09388B;"
+                    + "pressedBackground:#09388B;";
+
+            if (b == active) {
+                b.setSelected(true);
+                b.putClientProperty("FlatLaf.style", gaya
+                        + "background:#FFFFFF; foreground:#09388B; hoverBackground:#FFFFFF;");
+            } else {
+                b.setSelected(false);
+                b.putClientProperty("FlatLaf.style", gaya
+                        + "background:#09388B; foreground:#FFFFFF; hoverBackground:#09388B;");
+            }
+        }
     }
 
     /**
@@ -50,10 +72,23 @@ public class FrameMain extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         userLogContainer = new javax.swing.JPanel();
-        lblUser = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        mainContainer = new javax.swing.JPanel();
+        JPanel97 = new javax.swing.JPanel();
+        lblProfil = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        lblUser = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        btnDashboard = new javax.swing.JButton();
+        btnMhs = new javax.swing.JButton();
+        btnPemasukan = new javax.swing.JButton();
+        btnBayarKas = new javax.swing.JButton();
+        btnPengeluaran = new javax.swing.JButton();
+        btnLaporan = new javax.swing.JButton();
+        btnPengguna = new javax.swing.JButton();
+        mainContainer = new javax.swing.JPanel();
+        contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +113,7 @@ public class FrameMain extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Plus Jakarta Sans", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Kas Kelas Si 2025");
+        jLabel3.setText("Kas Kelas SI 2025");
         jPanel2.add(jLabel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -105,40 +140,87 @@ public class FrameMain extends javax.swing.JFrame {
         sidebarContainer.add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setBackground(new java.awt.Color(9, 56, 139));
-        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 24, 32, 24));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 20, 32, 20));
         jPanel3.setMinimumSize(new java.awt.Dimension(100, 120));
         jPanel3.setPreferredSize(new java.awt.Dimension(256, 120));
 
         userLogContainer.setBackground(new java.awt.Color(21, 101, 192));
 
-        lblUser.setBackground(new java.awt.Color(255, 255, 255));
+        JPanel97.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout lblUserLayout = new javax.swing.GroupLayout(lblUser);
-        lblUser.setLayout(lblUserLayout);
-        lblUserLayout.setHorizontalGroup(
-            lblUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 38, Short.MAX_VALUE)
+        lblProfil.setFont(new java.awt.Font("Plus Jakarta Sans", 1, 20)); // NOI18N
+        lblProfil.setForeground(new java.awt.Color(9, 56, 139));
+        lblProfil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProfil.setText("S");
+
+        javax.swing.GroupLayout JPanel97Layout = new javax.swing.GroupLayout(JPanel97);
+        JPanel97.setLayout(JPanel97Layout);
+        JPanel97Layout.setHorizontalGroup(
+            JPanel97Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+            .addGroup(JPanel97Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lblProfil, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
         );
-        lblUserLayout.setVerticalGroup(
-            lblUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 38, Short.MAX_VALUE)
+        JPanel97Layout.setVerticalGroup(
+            JPanel97Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+            .addGroup(JPanel97Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lblProfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
         );
+
+        jPanel5.setOpaque(false);
+        jPanel5.setLayout(new java.awt.GridLayout(2, 1));
+
+        lblUser.setFont(new java.awt.Font("Plus Jakarta Sans", 1, 13)); // NOI18N
+        lblUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblUser.setText("Sirdzat Iman");
+        jPanel5.add(lblUser);
+
+        lblRole.setFont(new java.awt.Font("Plus Jakarta Sans", 0, 11)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(255, 255, 255));
+        lblRole.setText("Bendahara 1");
+        jPanel5.add(lblRole);
+
+        jLabel7.setFont(new java.awt.Font("Plus Jakarta Sans", 1, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(9, 56, 139));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/btnLogout.png"))); // NOI18N
 
         javax.swing.GroupLayout userLogContainerLayout = new javax.swing.GroupLayout(userLogContainer);
         userLogContainer.setLayout(userLogContainerLayout);
         userLogContainerLayout.setHorizontalGroup(
             userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userLogContainerLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(JPanel97, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(157, Short.MAX_VALUE))
+            .addGroup(userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(userLogContainerLayout.createSequentialGroup()
+                    .addGap(68, 68, 68)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(49, Short.MAX_VALUE)))
+            .addGroup(userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userLogContainerLayout.createSequentialGroup()
+                    .addContainerGap(169, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         userLogContainerLayout.setVerticalGroup(
             userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userLogContainerLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(17, 17, 17)
+                .addComponent(JPanel97, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(userLogContainerLayout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(17, 17, 17)))
+            .addGroup(userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(userLogContainerLayout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addGap(17, 17, 17)))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -161,17 +243,110 @@ public class FrameMain extends javax.swing.JFrame {
         sidebarContainer.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
         jPanel4.setBackground(new java.awt.Color(9, 56, 139));
+        jPanel4.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 256, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        jPanel6.setBackground(new java.awt.Color(9, 56, 139));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 30, 1, 30));
+        jPanel6.setMinimumSize(new java.awt.Dimension(135, 300));
+        jPanel6.setPreferredSize(new java.awt.Dimension(256, 375));
+        jPanel6.setLayout(new java.awt.GridLayout(7, 1, 8, 8));
+
+        btnDashboard.setBackground(new java.awt.Color(9, 56, 139));
+        btnDashboard.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
+        btnDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconDashboard.png"))); // NOI18N
+        btnDashboard.setText("Dashboard");
+        btnDashboard.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconDashboard.png"))); // NOI18N
+        btnDashboard.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconDashboard.png"))); // NOI18N
+        btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDashboard.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnDashboard.setIconTextGap(12);
+        btnDashboard.setRolloverEnabled(false);
+        btnDashboard.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconDashboardActive.png"))); // NOI18N
+        btnDashboard.addActionListener(this::btnDashboardActionPerformed);
+        jPanel6.add(btnDashboard);
+
+        btnMhs.setBackground(new java.awt.Color(9, 56, 139));
+        btnMhs.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
+        btnMhs.setForeground(new java.awt.Color(255, 255, 255));
+        btnMhs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconMahasiswa.png"))); // NOI18N
+        btnMhs.setText("Mahasiswa");
+        btnMhs.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconMahasiswa.png"))); // NOI18N
+        btnMhs.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconMahasiswa.png"))); // NOI18N
+        btnMhs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMhs.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnMhs.setIconTextGap(12);
+        btnMhs.setRolloverEnabled(false);
+        btnMhs.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconMahasiswaActive.png"))); // NOI18N
+        btnMhs.addActionListener(this::btnMhsActionPerformed);
+        jPanel6.add(btnMhs);
+
+        btnPemasukan.setBackground(new java.awt.Color(9, 56, 139));
+        btnPemasukan.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
+        btnPemasukan.setForeground(new java.awt.Color(255, 255, 255));
+        btnPemasukan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPemasukan.png"))); // NOI18N
+        btnPemasukan.setText("Pemasukan");
+        btnPemasukan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPemasukan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnPemasukan.setIconTextGap(12);
+        btnPemasukan.setRolloverEnabled(false);
+        btnPemasukan.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPemasukanActive.png"))); // NOI18N
+        btnPemasukan.addActionListener(this::btnPemasukanActionPerformed);
+        jPanel6.add(btnPemasukan);
+
+        btnBayarKas.setBackground(new java.awt.Color(9, 56, 139));
+        btnBayarKas.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
+        btnBayarKas.setForeground(new java.awt.Color(255, 255, 255));
+        btnBayarKas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPembayaran.png"))); // NOI18N
+        btnBayarKas.setText("Pembayaran Kas");
+        btnBayarKas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnBayarKas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnBayarKas.setIconTextGap(12);
+        btnBayarKas.setRolloverEnabled(false);
+        btnBayarKas.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPembayaranActive.png"))); // NOI18N
+        btnBayarKas.addActionListener(this::btnBayarKasActionPerformed);
+        jPanel6.add(btnBayarKas);
+
+        btnPengeluaran.setBackground(new java.awt.Color(9, 56, 139));
+        btnPengeluaran.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
+        btnPengeluaran.setForeground(new java.awt.Color(255, 255, 255));
+        btnPengeluaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPengeluaran.png"))); // NOI18N
+        btnPengeluaran.setText("Pengeluaran");
+        btnPengeluaran.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPengeluaran.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnPengeluaran.setIconTextGap(12);
+        btnPengeluaran.setRolloverEnabled(false);
+        btnPengeluaran.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPengeluaranActive.png"))); // NOI18N
+        btnPengeluaran.addActionListener(this::btnPengeluaranActionPerformed);
+        jPanel6.add(btnPengeluaran);
+
+        btnLaporan.setBackground(new java.awt.Color(9, 56, 139));
+        btnLaporan.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
+        btnLaporan.setForeground(new java.awt.Color(255, 255, 255));
+        btnLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconLaporan.png"))); // NOI18N
+        btnLaporan.setText("Laporan");
+        btnLaporan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLaporan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnLaporan.setIconTextGap(12);
+        btnLaporan.setRolloverEnabled(false);
+        btnLaporan.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconLaporanActiveActive.png"))); // NOI18N
+        btnLaporan.addActionListener(this::btnLaporanActionPerformed);
+        jPanel6.add(btnLaporan);
+
+        btnPengguna.setBackground(new java.awt.Color(9, 56, 139));
+        btnPengguna.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
+        btnPengguna.setForeground(new java.awt.Color(255, 255, 255));
+        btnPengguna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPengguna.png"))); // NOI18N
+        btnPengguna.setText("Pengguna");
+        btnPengguna.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPengguna.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnPengguna.setIconTextGap(12);
+        btnPengguna.setRolloverEnabled(false);
+        btnPengguna.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPenggunaActive.png"))); // NOI18N
+        btnPengguna.addActionListener(this::btnPenggunaActionPerformed);
+        jPanel6.add(btnPengguna);
+
+        jPanel4.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
         sidebarContainer.add(jPanel4, java.awt.BorderLayout.CENTER);
 
@@ -179,23 +354,58 @@ public class FrameMain extends javax.swing.JFrame {
 
         mainContainer.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
+        contentPanel.setLayout(contentPanelLayout);
+        contentPanelLayout.setHorizontalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1024, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        contentPanelLayout.setVerticalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 720, Short.MAX_VALUE)
         );
 
-        mainContainer.add(jPanel5, "card2");
+        mainContainer.add(contentPanel, "card2");
 
         getContentPane().add(mainContainer, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPemasukanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPemasukanActionPerformed
+        // TODO add your handling code here:
+        setActiveMenu(btnPemasukan);
+    }//GEN-LAST:event_btnPemasukanActionPerformed
+
+    private void btnMhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMhsActionPerformed
+        // TODO add your handling code here:
+        setActiveMenu(btnMhs);
+    }//GEN-LAST:event_btnMhsActionPerformed
+
+    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
+        // TODO add your handling code here:
+        setActiveMenu(btnDashboard);
+    }//GEN-LAST:event_btnDashboardActionPerformed
+
+    private void btnBayarKasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarKasActionPerformed
+        // TODO add your handling code here:
+        setActiveMenu(btnBayarKas);
+    }//GEN-LAST:event_btnBayarKasActionPerformed
+
+    private void btnPengeluaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPengeluaranActionPerformed
+        // TODO add your handling code here:
+        setActiveMenu(btnPengeluaran);
+    }//GEN-LAST:event_btnPengeluaranActionPerformed
+
+    private void btnLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanActionPerformed
+        // TODO add your handling code here:
+        setActiveMenu(btnLaporan);
+    }//GEN-LAST:event_btnLaporanActionPerformed
+
+    private void btnPenggunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPenggunaActionPerformed
+        // TODO add your handling code here:
+        setActiveMenu(btnPengguna);
+    }//GEN-LAST:event_btnPenggunaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,15 +427,28 @@ public class FrameMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPanel97;
+    private javax.swing.JButton btnBayarKas;
+    private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnLaporan;
+    private javax.swing.JButton btnMhs;
+    private javax.swing.JButton btnPemasukan;
+    private javax.swing.JButton btnPengeluaran;
+    private javax.swing.JButton btnPengguna;
+    private javax.swing.JPanel contentPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel lblUser;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel lblProfil;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JPanel mainContainer;
     private javax.swing.JPanel sidebarContainer;
     private javax.swing.JPanel userLogContainer;
