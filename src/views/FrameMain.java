@@ -88,7 +88,7 @@ public class FrameMain extends javax.swing.JFrame {
         btnLaporan = new javax.swing.JButton();
         btnPengguna = new javax.swing.JButton();
         mainContainer = new javax.swing.JPanel();
-        contentPanel = new javax.swing.JPanel();
+        panelDashboard1 = new views.PanelDashboard();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -353,19 +353,7 @@ public class FrameMain extends javax.swing.JFrame {
         getContentPane().add(sidebarContainer, java.awt.BorderLayout.LINE_START);
 
         mainContainer.setLayout(new java.awt.CardLayout());
-
-        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
-        contentPanel.setLayout(contentPanelLayout);
-        contentPanelLayout.setHorizontalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
-        );
-        contentPanelLayout.setVerticalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-
-        mainContainer.add(contentPanel, "card2");
+        mainContainer.add(panelDashboard1, "card2");
 
         getContentPane().add(mainContainer, java.awt.BorderLayout.CENTER);
 
@@ -435,7 +423,6 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JButton btnPemasukan;
     private javax.swing.JButton btnPengeluaran;
     private javax.swing.JButton btnPengguna;
-    private javax.swing.JPanel contentPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -450,6 +437,7 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblUser;
     private javax.swing.JPanel mainContainer;
+    private views.PanelDashboard panelDashboard1;
     private javax.swing.JPanel sidebarContainer;
     private javax.swing.JPanel userLogContainer;
     // End of variables declaration//GEN-END:variables
