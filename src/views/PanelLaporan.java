@@ -25,20 +25,606 @@ public class PanelLaporan extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1024, Short.MAX_VALUE)
+        jPanel7 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        lblSelamatDatang = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        panelTambahPengeluaran = new javax.swing.JPanel();
+        lblTambahPengeluaran = new javax.swing.JLabel();
+        panelForm = new javax.swing.JPanel();
+        lblTanggal = new javax.swing.JLabel();
+        txtTanggal = new javax.swing.JTextField();
+        lblKategori = new javax.swing.JLabel();
+        cmbKategori = new javax.swing.JComboBox<>();
+        lblJumlah = new javax.swing.JLabel();
+        txtJumlah = new javax.swing.JTextField();
+        lblKeterangan = new javax.swing.JLabel();
+        txtKeterangan = new javax.swing.JTextField();
+        panelTombol = new javax.swing.JPanel();
+        btnHapus = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblSelamatDatang1 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lblSelamatDatang2 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblSelamatDatang3 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setBackground(new java.awt.Color(240, 243, 247));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 243, 247), 20));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(240, 243, 247));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1006, 170));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel4.setBackground(new java.awt.Color(240, 243, 247));
+        jPanel4.setPreferredSize(new java.awt.Dimension(1006, 60));
+
+        lblSelamatDatang.setFont(new java.awt.Font("Plus Jakarta Text", 1, 18)); // NOI18N
+        lblSelamatDatang.setText("Pemasukan");
+
+        jLabel1.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("Rekap penasukan Dan Pengeluaran");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSelamatDatang)
+                    .addComponent(jLabel1))
+                .addContainerGap(799, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSelamatDatang)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+
+        panelTambahPengeluaran.setBackground(new java.awt.Color(255, 255, 255));
+        panelTambahPengeluaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 24, 20, 24));
+        panelTambahPengeluaran.setPreferredSize(new java.awt.Dimension(972, 182));
+        panelTambahPengeluaran.setLayout(new java.awt.BorderLayout());
+
+        lblTambahPengeluaran.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblTambahPengeluaran.setText("Tambah Pengeluaran");
+        lblTambahPengeluaran.setPreferredSize(new java.awt.Dimension(300, 24));
+        panelTambahPengeluaran.add(lblTambahPengeluaran, java.awt.BorderLayout.NORTH);
+
+        panelForm.setBackground(new java.awt.Color(255, 255, 255));
+        panelForm.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 0, 12, 0));
+        panelForm.setLayout(new java.awt.GridBagLayout());
+
+        lblTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblTanggal.setText("Tanggal");
+        lblTanggal.setPreferredSize(new java.awt.Dimension(130, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
+        panelForm.add(lblTanggal, gridBagConstraints);
+
+        txtTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtTanggal.setText("10/10/2026");
+        txtTanggal.setPreferredSize(new java.awt.Dimension(138, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
+        panelForm.add(txtTanggal, gridBagConstraints);
+
+        lblKategori.setText("Kategori");
+        lblKategori.setPreferredSize(new java.awt.Dimension(160, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
+        panelForm.add(lblKategori, gridBagConstraints);
+
+        cmbKategori.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perlengkapan", "Fotokopi", "Kebersihan", "Konsumsi", "Lainnya" }));
+        cmbKategori.setPreferredSize(new java.awt.Dimension(164, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
+        panelForm.add(cmbKategori, gridBagConstraints);
+
+        lblJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblJumlah.setText("Jumlah");
+        lblJumlah.setPreferredSize(new java.awt.Dimension(140, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
+        panelForm.add(lblJumlah, gridBagConstraints);
+
+        txtJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtJumlah.setText("25000");
+        txtJumlah.setPreferredSize(new java.awt.Dimension(146, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
+        panelForm.add(txtJumlah, gridBagConstraints);
+
+        lblKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        lblKeterangan.setText("Keterangan");
+        lblKeterangan.setPreferredSize(new java.awt.Dimension(250, 18));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.35;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 0);
+        panelForm.add(lblKeterangan, gridBagConstraints);
+
+        txtKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtKeterangan.setText("Spidol papan tulis 2 pcs");
+        txtKeterangan.setPreferredSize(new java.awt.Dimension(450, 42));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.35;
+        panelForm.add(txtKeterangan, gridBagConstraints);
+
+        panelTambahPengeluaran.add(panelForm, java.awt.BorderLayout.CENTER);
+
+        panelTombol.setBackground(new java.awt.Color(255, 255, 255));
+        panelTombol.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnHapus.setBackground(new java.awt.Color(253, 232, 232));
+        btnHapus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(220, 38, 38));
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-trash-20 (1).png"))); // NOI18N
+        btnHapus.setText("Hapus");
+        btnHapus.setFocusPainted(false);
+        btnHapus.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnHapus);
+
+        btnUbah.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnUbah.setForeground(new java.awt.Color(30, 41, 59));
+        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-pencil-20.png"))); // NOI18N
+        btnUbah.setText("Ubah");
+        btnUbah.setFocusPainted(false);
+        btnUbah.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnUbah);
+
+        btnSimpan.setBackground(new java.awt.Color(21, 115, 214));
+        btnSimpan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
+        btnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Vector (1).png"))); // NOI18N
+        btnSimpan.setText("Simpan");
+        btnSimpan.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnSimpan);
+
+        panelTambahPengeluaran.add(panelTombol, java.awt.BorderLayout.SOUTH);
+
+        jPanel1.add(panelTambahPengeluaran, java.awt.BorderLayout.NORTH);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(984, 80));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
+        jPanel3.setPreferredSize(new java.awt.Dimension(984, 30));
+
+        jLabel2.setText("Dari");
+
+        jLabel3.setText("Sampai");
+
+        jLabel4.setText("Jenis");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(138, 138, 138)
+                .addComponent(jLabel3)
+                .addGap(121, 121, 121)
+                .addComponent(jLabel4)
+                .addContainerGap(644, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 2, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)))
+        );
+
+        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 25, 25));
+        jPanel6.setPreferredSize(new java.awt.Dimension(984, 80));
+        jPanel6.setLayout(new java.awt.GridLayout(1, 6, 15, 0));
+        jPanel6.add(jDateChooser2);
+        jPanel6.add(jDateChooser1);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
+        jPanel6.add(jComboBox1);
+
+        jButton1.setBackground(new java.awt.Color(25, 118, 210));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-search-20.png"))); // NOI18N
+        jButton1.setText("Tampilkan");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jPanel6.add(jButton1);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/MingcuteFileExportLine.png"))); // NOI18N
+        jButton2.setText("Export");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+        jPanel6.add(jButton2);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/PrimePrint.png"))); // NOI18N
+        jButton3.setText("Cetak");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
+        jPanel6.add(jButton3);
+
+        jPanel2.add(jPanel6, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel8.setLayout(new java.awt.BorderLayout(8, 8));
+
+        jPanel9.setMinimumSize(new java.awt.Dimension(364, 130));
+        jPanel9.setPreferredSize(new java.awt.Dimension(984, 130));
+        jPanel9.setLayout(new java.awt.GridLayout(1, 3, 32, 0));
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Up.png"))); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Total Pemasukan");
+
+        lblSelamatDatang1.setFont(new java.awt.Font("Plus Jakarta Text", 1, 18)); // NOI18N
+        lblSelamatDatang1.setText("Rp 1.200.000");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(lblSelamatDatang1))
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSelamatDatang1))
+                    .addComponent(jLabel6))
+                .addGap(29, 29, 29))
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel9.add(jPanel10);
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Down.png"))); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("Total Pengeluaran");
+
+        lblSelamatDatang2.setFont(new java.awt.Font("Plus Jakarta Text", 1, 18)); // NOI18N
+        lblSelamatDatang2.setText("Rp 350.000");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(lblSelamatDatang2))
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblSelamatDatang2))
+                    .addComponent(jLabel5))
+                .addGap(25, 25, 25))
+        );
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel9.add(jPanel11);
+
+        jPanel15.setBackground(new java.awt.Color(25, 118, 210));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Dompet.png"))); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Saldo Akhir");
+
+        lblSelamatDatang3.setFont(new java.awt.Font("Plus Jakarta Text", 1, 18)); // NOI18N
+        lblSelamatDatang3.setForeground(new java.awt.Color(255, 255, 255));
+        lblSelamatDatang3.setText("Rp 850.000");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(lblSelamatDatang3))
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSelamatDatang3))
+                    .addComponent(jLabel7))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel9.add(jPanel12);
+
+        jPanel8.add(jPanel9, java.awt.BorderLayout.PAGE_START);
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 16, 16, 16));
+        jPanel16.setLayout(new java.awt.BorderLayout());
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setPreferredSize(new java.awt.Dimension(1006, 60));
+        jPanel17.setLayout(new java.awt.CardLayout());
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setText("Rincian Transaksi - Oktober 2026");
+        jPanel17.add(jLabel11, "card2");
+
+        jPanel16.add(jPanel17, java.awt.BorderLayout.PAGE_START);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel16.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        jPanel8.add(jPanel16, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(jPanel8, java.awt.BorderLayout.CENTER);
+
+        add(jPanel5, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnUbah;
+    private javax.swing.JComboBox<String> cmbKategori;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblJumlah;
+    private javax.swing.JLabel lblKategori;
+    private javax.swing.JLabel lblKeterangan;
+    private javax.swing.JLabel lblSelamatDatang;
+    private javax.swing.JLabel lblSelamatDatang1;
+    private javax.swing.JLabel lblSelamatDatang2;
+    private javax.swing.JLabel lblSelamatDatang3;
+    private javax.swing.JLabel lblTambahPengeluaran;
+    private javax.swing.JLabel lblTanggal;
+    private javax.swing.JPanel panelForm;
+    private javax.swing.JPanel panelTambahPengeluaran;
+    private javax.swing.JPanel panelTombol;
+    private javax.swing.JTextField txtJumlah;
+    private javax.swing.JTextField txtKeterangan;
+    private javax.swing.JTextField txtTanggal;
     // End of variables declaration//GEN-END:variables
 }
