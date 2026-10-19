@@ -120,7 +120,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Plus Jakarta Text" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Pemasukan"/>
+                    <Property name="text" type="java.lang.String" value="Laporan"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">

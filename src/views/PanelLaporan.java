@@ -108,7 +108,7 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel4.setPreferredSize(new java.awt.Dimension(1006, 60));
 
         lblSelamatDatang.setFont(new java.awt.Font("Plus Jakarta Text", 1, 18)); // NOI18N
-        lblSelamatDatang.setText("Pemasukan");
+        lblSelamatDatang.setText("Laporan");
 
         jLabel1.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
