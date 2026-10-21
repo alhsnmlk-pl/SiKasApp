@@ -33,23 +33,24 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         lblSubJudul = new javax.swing.JLabel();
         panelAksi = new javax.swing.JPanel();
         txtPencarian = new javax.swing.JTextField();
-        btnNotifikasi = new javax.swing.JButton();
         panelKonten = new javax.swing.JPanel();
         panelTambahPengeluaran = new javax.swing.JPanel();
         lblTambahPengeluaran = new javax.swing.JLabel();
-        panelForm = new javax.swing.JPanel();
-        lblTanggal = new javax.swing.JLabel();
-        txtTanggal = new javax.swing.JTextField();
-        lblKategori = new javax.swing.JLabel();
-        cmbKategori = new javax.swing.JComboBox<>();
-        lblJumlah = new javax.swing.JLabel();
-        txtJumlah = new javax.swing.JTextField();
-        lblKeterangan = new javax.swing.JLabel();
-        txtKeterangan = new javax.swing.JTextField();
         panelTombol = new javax.swing.JPanel();
         btnHapus = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
         btnSimpan = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         panelRiwayatPengeluaran = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -65,6 +66,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelHeader.setOpaque(false);
         panelHeader.setLayout(new java.awt.BorderLayout());
 
+        panelJudul.setBackground(new java.awt.Color(240, 244, 252));
         panelJudul.setLayout(new javax.swing.BoxLayout(panelJudul, javax.swing.BoxLayout.Y_AXIS));
 
         lblJudul.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
@@ -79,17 +81,14 @@ public class PanelPengeluaran extends javax.swing.JPanel {
 
         panelHeader.add(panelJudul, java.awt.BorderLayout.WEST);
 
+        panelAksi.setBackground(new java.awt.Color(240, 244, 252));
+
         txtPencarian.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtPencarian.setForeground(new java.awt.Color(114, 114, 114));
         txtPencarian.setText("Cari di aplikasi");
         txtPencarian.setPreferredSize(new java.awt.Dimension(280, 40));
         txtPencarian.addActionListener(this::txtPencarianActionPerformed);
         panelAksi.add(txtPencarian);
-
-        btnNotifikasi.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnNotifikasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-notification-30.png"))); // NOI18N
-        btnNotifikasi.setPreferredSize(new java.awt.Dimension(40, 40));
-        panelAksi.add(btnNotifikasi);
 
         panelHeader.add(panelAksi, java.awt.BorderLayout.EAST);
 
@@ -99,7 +98,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelKonten.setLayout(new java.awt.BorderLayout(0, 16));
 
         panelTambahPengeluaran.setBackground(new java.awt.Color(255, 255, 255));
-        panelTambahPengeluaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 24, 20, 24));
+        panelTambahPengeluaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 24, 15, 24));
         panelTambahPengeluaran.setPreferredSize(new java.awt.Dimension(972, 182));
         panelTambahPengeluaran.setLayout(new java.awt.BorderLayout());
 
@@ -107,102 +106,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         lblTambahPengeluaran.setText("Tambah Pengeluaran");
         lblTambahPengeluaran.setPreferredSize(new java.awt.Dimension(300, 24));
         panelTambahPengeluaran.add(lblTambahPengeluaran, java.awt.BorderLayout.NORTH);
-
-        panelForm.setBackground(new java.awt.Color(255, 255, 255));
-        panelForm.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 0, 12, 0));
-        panelForm.setLayout(new java.awt.GridBagLayout());
-
-        lblTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblTanggal.setText("Tanggal");
-        lblTanggal.setPreferredSize(new java.awt.Dimension(130, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
-        panelForm.add(lblTanggal, gridBagConstraints);
-
-        txtTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtTanggal.setText("10/10/2026");
-        txtTanggal.setPreferredSize(new java.awt.Dimension(138, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
-        panelForm.add(txtTanggal, gridBagConstraints);
-
-        lblKategori.setText("Kategori");
-        lblKategori.setPreferredSize(new java.awt.Dimension(160, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
-        panelForm.add(lblKategori, gridBagConstraints);
-
-        cmbKategori.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perlengkapan", "Fotokopi", "Kebersihan", "Konsumsi", "Lainnya" }));
-        cmbKategori.setPreferredSize(new java.awt.Dimension(164, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
-        panelForm.add(cmbKategori, gridBagConstraints);
-
-        lblJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblJumlah.setText("Jumlah");
-        lblJumlah.setPreferredSize(new java.awt.Dimension(140, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
-        panelForm.add(lblJumlah, gridBagConstraints);
-
-        txtJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtJumlah.setText("25000");
-        txtJumlah.setPreferredSize(new java.awt.Dimension(146, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
-        panelForm.add(txtJumlah, gridBagConstraints);
-
-        lblKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblKeterangan.setText("Keterangan");
-        lblKeterangan.setPreferredSize(new java.awt.Dimension(250, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.35;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 0);
-        panelForm.add(lblKeterangan, gridBagConstraints);
-
-        txtKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtKeterangan.setText("Spidol papan tulis 2 pcs");
-        txtKeterangan.setPreferredSize(new java.awt.Dimension(450, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.35;
-        panelForm.add(txtKeterangan, gridBagConstraints);
-
-        panelTambahPengeluaran.add(panelForm, java.awt.BorderLayout.CENTER);
 
         panelTombol.setBackground(new java.awt.Color(255, 255, 255));
         panelTombol.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
@@ -233,6 +136,45 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelTombol.add(btnSimpan);
 
         panelTambahPengeluaran.add(panelTombol, java.awt.BorderLayout.SOUTH);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 5, 0));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(100, 25));
+        jPanel2.setLayout(new java.awt.GridLayout(1, 4, 10, 0));
+
+        jLabel1.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel1.setText("Tanggal");
+        jPanel2.add(jLabel1);
+
+        jLabel2.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel2.setText("Kategori");
+        jPanel2.add(jLabel2);
+
+        jLabel3.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel3.setText("Jumlah");
+        jPanel2.add(jLabel3);
+
+        jLabel4.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel4.setText("Keterangan");
+        jPanel2.add(jLabel4);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.GridLayout(1, 4, 10, 0));
+        jPanel3.add(jDateChooser1);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(jComboBox1);
+        jPanel3.add(jTextField2);
+        jPanel3.add(jTextField3);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        panelTambahPengeluaran.add(jPanel1, java.awt.BorderLayout.CENTER);
 
         panelKonten.add(panelTambahPengeluaran, java.awt.BorderLayout.NORTH);
 
@@ -306,23 +248,27 @@ public class PanelPengeluaran extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHapus;
-    private javax.swing.JButton btnNotifikasi;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnUbah;
-    private javax.swing.JComboBox<String> cmbKategori;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblJudul;
-    private javax.swing.JLabel lblJumlah;
-    private javax.swing.JLabel lblKategori;
-    private javax.swing.JLabel lblKeterangan;
     private javax.swing.JLabel lblRiwayatPengeluaran;
     private javax.swing.JLabel lblSubJudul;
     private javax.swing.JLabel lblTambahPengeluaran;
-    private javax.swing.JLabel lblTanggal;
     private javax.swing.JLabel lblTotalPengeluaran;
     private javax.swing.JPanel panelAksi;
-    private javax.swing.JPanel panelForm;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelHeaderRiwayat;
     private javax.swing.JPanel panelJudul;
@@ -330,9 +276,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     private javax.swing.JPanel panelRiwayatPengeluaran;
     private javax.swing.JPanel panelTambahPengeluaran;
     private javax.swing.JPanel panelTombol;
-    private javax.swing.JTextField txtJumlah;
-    private javax.swing.JTextField txtKeterangan;
     private javax.swing.JTextField txtPencarian;
-    private javax.swing.JTextField txtTanggal;
     // End of variables declaration//GEN-END:variables
 }
