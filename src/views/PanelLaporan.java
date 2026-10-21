@@ -54,8 +54,6 @@ public class PanelLaporan extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -318,8 +316,6 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 25, 25));
         jPanel6.setPreferredSize(new java.awt.Dimension(984, 80));
         jPanel6.setLayout(new java.awt.GridLayout(1, 6, 15, 0));
-        jPanel6.add(jDateChooser2);
-        jPanel6.add(jDateChooser1);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
@@ -579,8 +575,6 @@ public class PanelLaporan extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
