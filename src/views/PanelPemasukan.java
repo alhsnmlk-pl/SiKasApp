@@ -34,20 +34,23 @@ public class PanelPemasukan extends javax.swing.JPanel {
         lblSubJudul = new javax.swing.JLabel();
         panelKonten = new javax.swing.JPanel();
         panelTambahPengeluaran = new javax.swing.JPanel();
+        panelTambahPengeluaran1 = new javax.swing.JPanel();
         lblTambahPengeluaran = new javax.swing.JLabel();
-        panelForm = new javax.swing.JPanel();
-        lblTanggal = new javax.swing.JLabel();
-        txtTanggal = new javax.swing.JTextField();
-        lblKategori = new javax.swing.JLabel();
-        cmbKategori = new javax.swing.JComboBox<>();
-        lblJumlah = new javax.swing.JLabel();
-        txtJumlah = new javax.swing.JTextField();
-        lblKeterangan = new javax.swing.JLabel();
-        txtKeterangan = new javax.swing.JTextField();
         panelTombol = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         panelRiwayatPengeluaran = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -86,131 +89,89 @@ public class PanelPemasukan extends javax.swing.JPanel {
         panelKonten.setLayout(new java.awt.BorderLayout(0, 16));
 
         panelTambahPengeluaran.setBackground(new java.awt.Color(255, 255, 255));
-        panelTambahPengeluaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 24, 20, 24));
         panelTambahPengeluaran.setPreferredSize(new java.awt.Dimension(972, 182));
         panelTambahPengeluaran.setLayout(new java.awt.BorderLayout());
 
+        panelTambahPengeluaran1.setBackground(new java.awt.Color(255, 255, 255));
+        panelTambahPengeluaran1.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 24, 15, 24));
+        panelTambahPengeluaran1.setPreferredSize(new java.awt.Dimension(972, 182));
+        panelTambahPengeluaran1.setLayout(new java.awt.BorderLayout());
+
         lblTambahPengeluaran.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        lblTambahPengeluaran.setText("Tambah Pemasukan Lain");
+        lblTambahPengeluaran.setText("Tambah Pemasukan");
         lblTambahPengeluaran.setPreferredSize(new java.awt.Dimension(300, 24));
-        panelTambahPengeluaran.add(lblTambahPengeluaran, java.awt.BorderLayout.NORTH);
-
-        panelForm.setBackground(new java.awt.Color(255, 255, 255));
-        panelForm.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 0, 8, 0));
-        panelForm.setLayout(new java.awt.GridBagLayout());
-
-        lblTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblTanggal.setText("Tanggal");
-        lblTanggal.setPreferredSize(new java.awt.Dimension(130, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
-        panelForm.add(lblTanggal, gridBagConstraints);
-
-        txtTanggal.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtTanggal.setText("10/10/2026");
-        txtTanggal.setPreferredSize(new java.awt.Dimension(138, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
-        panelForm.add(txtTanggal, gridBagConstraints);
-
-        lblKategori.setText("Kategori");
-        lblKategori.setPreferredSize(new java.awt.Dimension(160, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
-        panelForm.add(lblKategori, gridBagConstraints);
-
-        cmbKategori.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perlengkapan", "Fotokopi", "Kebersihan", "Konsumsi", "Lainnya" }));
-        cmbKategori.setPreferredSize(new java.awt.Dimension(164, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
-        panelForm.add(cmbKategori, gridBagConstraints);
-
-        lblJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblJumlah.setText("Jumlah");
-        lblJumlah.setPreferredSize(new java.awt.Dimension(140, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 12);
-        panelForm.add(lblJumlah, gridBagConstraints);
-
-        txtJumlah.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtJumlah.setText("25000");
-        txtJumlah.setPreferredSize(new java.awt.Dimension(146, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 12);
-        panelForm.add(txtJumlah, gridBagConstraints);
-
-        lblKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        lblKeterangan.setText("Keterangan");
-        lblKeterangan.setPreferredSize(new java.awt.Dimension(250, 18));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.35;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 0);
-        panelForm.add(lblKeterangan, gridBagConstraints);
-
-        txtKeterangan.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        txtKeterangan.setText("Sumbangan alumni");
-        txtKeterangan.setPreferredSize(new java.awt.Dimension(450, 42));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.35;
-        panelForm.add(txtKeterangan, gridBagConstraints);
-
-        panelTambahPengeluaran.add(panelForm, java.awt.BorderLayout.CENTER);
+        panelTambahPengeluaran1.add(lblTambahPengeluaran, java.awt.BorderLayout.NORTH);
 
         panelTombol.setBackground(new java.awt.Color(255, 255, 255));
         panelTombol.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        jButton1.setBackground(new java.awt.Color(252, 232, 230));
-        jButton1.setForeground(new java.awt.Color(227, 102, 93));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-trash-21.png"))); // NOI18N
-        jButton1.setText("Hapus");
-        panelTombol.add(jButton1);
+        btnHapus.setBackground(new java.awt.Color(253, 232, 232));
+        btnHapus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(220, 38, 38));
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-trash-20 (1).png"))); // NOI18N
+        btnHapus.setText("Hapus");
+        btnHapus.setFocusPainted(false);
+        btnHapus.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnHapus);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-pencil-21.png"))); // NOI18N
-        jButton2.setText("Ubah");
-        panelTombol.add(jButton2);
+        btnUbah.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnUbah.setForeground(new java.awt.Color(30, 41, 59));
+        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-pencil-20.png"))); // NOI18N
+        btnUbah.setText("Ubah");
+        btnUbah.setFocusPainted(false);
+        btnUbah.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnUbah);
 
-        jButton3.setBackground(new java.awt.Color(25, 118, 210));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-save-21.png"))); // NOI18N
-        jButton3.setText("Hapus");
-        panelTombol.add(jButton3);
+        btnSimpan.setBackground(new java.awt.Color(21, 115, 214));
+        btnSimpan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
+        btnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Vector (1).png"))); // NOI18N
+        btnSimpan.setText("Simpan");
+        btnSimpan.setPreferredSize(new java.awt.Dimension(110, 40));
+        panelTombol.add(btnSimpan);
 
-        panelTambahPengeluaran.add(panelTombol, java.awt.BorderLayout.SOUTH);
+        panelTambahPengeluaran1.add(panelTombol, java.awt.BorderLayout.SOUTH);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 5, 0));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setPreferredSize(new java.awt.Dimension(100, 25));
+        jPanel3.setLayout(new java.awt.GridLayout(1, 4, 10, 0));
+
+        jLabel1.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel1.setText("Tanggal");
+        jPanel3.add(jLabel1);
+
+        jLabel2.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel2.setText("Kategori");
+        jPanel3.add(jLabel2);
+
+        jLabel3.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel3.setText("Jumlah");
+        jPanel3.add(jLabel3);
+
+        jLabel4.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
+        jLabel4.setText("Keterangan");
+        jPanel3.add(jLabel4);
+
+        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.GridLayout(1, 4, 10, 0));
+        jPanel4.add(jDateChooser1);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox1);
+        jPanel4.add(jTextField2);
+        jPanel4.add(jTextField3);
+
+        jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        panelTambahPengeluaran1.add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        panelTambahPengeluaran.add(panelTambahPengeluaran1, java.awt.BorderLayout.NORTH);
 
         panelKonten.add(panelTambahPengeluaran, java.awt.BorderLayout.NORTH);
 
@@ -276,32 +237,35 @@ public class PanelPemasukan extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbKategori;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnUbah;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblJudul;
-    private javax.swing.JLabel lblJumlah;
-    private javax.swing.JLabel lblKategori;
-    private javax.swing.JLabel lblKeterangan;
     private javax.swing.JLabel lblRiwayatPengeluaran;
     private javax.swing.JLabel lblSubJudul;
     private javax.swing.JLabel lblTambahPengeluaran;
-    private javax.swing.JLabel lblTanggal;
     private javax.swing.JLabel lblTotalPengeluaran;
-    private javax.swing.JPanel panelForm;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelHeaderRiwayat;
     private javax.swing.JPanel panelJudul;
     private javax.swing.JPanel panelKonten;
     private javax.swing.JPanel panelRiwayatPengeluaran;
     private javax.swing.JPanel panelTambahPengeluaran;
+    private javax.swing.JPanel panelTambahPengeluaran1;
     private javax.swing.JPanel panelTombol;
-    private javax.swing.JTextField txtJumlah;
-    private javax.swing.JTextField txtKeterangan;
-    private javax.swing.JTextField txtTanggal;
     // End of variables declaration//GEN-END:variables
 }

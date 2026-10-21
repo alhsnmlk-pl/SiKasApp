@@ -25,14 +25,11 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         panelHeader = new javax.swing.JPanel();
         panelJudul = new javax.swing.JPanel();
         lblJudul = new javax.swing.JLabel();
         lblSubJudul = new javax.swing.JLabel();
-        panelAksi = new javax.swing.JPanel();
-        txtPencarian = new javax.swing.JTextField();
         panelKonten = new javax.swing.JPanel();
         panelTambahPengeluaran = new javax.swing.JPanel();
         lblTambahPengeluaran = new javax.swing.JLabel();
@@ -80,17 +77,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelJudul.add(lblSubJudul);
 
         panelHeader.add(panelJudul, java.awt.BorderLayout.WEST);
-
-        panelAksi.setBackground(new java.awt.Color(240, 244, 252));
-
-        txtPencarian.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtPencarian.setForeground(new java.awt.Color(114, 114, 114));
-        txtPencarian.setText("Cari di aplikasi");
-        txtPencarian.setPreferredSize(new java.awt.Dimension(280, 40));
-        txtPencarian.addActionListener(this::txtPencarianActionPerformed);
-        panelAksi.add(txtPencarian);
-
-        panelHeader.add(panelAksi, java.awt.BorderLayout.EAST);
 
         add(panelHeader, java.awt.BorderLayout.NORTH);
 
@@ -241,10 +227,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         add(panelKonten, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPencarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPencarianActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPencarianActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHapus;
@@ -268,7 +250,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     private javax.swing.JLabel lblSubJudul;
     private javax.swing.JLabel lblTambahPengeluaran;
     private javax.swing.JLabel lblTotalPengeluaran;
-    private javax.swing.JPanel panelAksi;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelHeaderRiwayat;
     private javax.swing.JPanel panelJudul;
@@ -276,6 +257,5 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     private javax.swing.JPanel panelRiwayatPengeluaran;
     private javax.swing.JPanel panelTambahPengeluaran;
     private javax.swing.JPanel panelTombol;
-    private javax.swing.JTextField txtPencarian;
     // End of variables declaration//GEN-END:variables
 }
