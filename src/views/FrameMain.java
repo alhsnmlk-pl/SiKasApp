@@ -88,7 +88,6 @@ public class FrameMain extends javax.swing.JFrame {
         btnLaporan = new javax.swing.JButton();
         btnPengguna = new javax.swing.JButton();
         mainContainer = new javax.swing.JPanel();
-        panelDashboard1 = new views.PanelDashboard();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -353,8 +352,6 @@ public class FrameMain extends javax.swing.JFrame {
         getContentPane().add(sidebarContainer, java.awt.BorderLayout.LINE_START);
 
         mainContainer.setLayout(new java.awt.CardLayout());
-        mainContainer.add(panelDashboard1, "card2");
-
         getContentPane().add(mainContainer, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -437,7 +434,6 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblUser;
     private javax.swing.JPanel mainContainer;
-    private views.PanelDashboard panelDashboard1;
     private javax.swing.JPanel sidebarContainer;
     private javax.swing.JPanel userLogContainer;
     // End of variables declaration//GEN-END:variables
