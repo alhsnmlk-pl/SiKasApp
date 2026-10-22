@@ -186,6 +186,7 @@ public class FrameLogin extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Login");
         jButton1.setPreferredSize(new java.awt.Dimension(386, 59));
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jLabel15.setFont(new java.awt.Font("Plus Jakarta Text Light", 0, 16)); // NOI18N
         jLabel15.setText("Username");
@@ -309,6 +310,12 @@ public class FrameLogin extends javax.swing.JFrame {
             tPassword.setEchoChar('\u2022');
         }
     }//GEN-LAST:event_bMataActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new FrameMain().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

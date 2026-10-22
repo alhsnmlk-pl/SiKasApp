@@ -6,6 +6,7 @@ package views;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.ui.FlatLineBorder;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Insets;
 import javax.swing.JButton;
@@ -20,6 +21,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class FrameMain extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMain.class.getName());
+    
+    private  CardLayout cardLayout;
 
     /**
      * Creates new form MainFrame
@@ -28,6 +31,8 @@ public class FrameMain extends javax.swing.JFrame {
         initComponents();
         panelLengkung(userLogContainer);
         setActiveMenu(btnDashboard);
+        inisiasiPanel();
+        cardLayout.show(mainContainer, "dashboard");
     }
     
     void panelLengkung(JPanel p) {
@@ -53,6 +58,17 @@ public class FrameMain extends javax.swing.JFrame {
                         + "background:#0D47A0; foreground:#FFFFFF; hoverBackground:#0D47A0;");
             }
         }
+    }
+    
+    void inisiasiPanel(){
+        cardLayout = (CardLayout)mainContainer.getLayout();
+        mainContainer.add(new PanelDashboard(), "dashboard");
+        mainContainer.add(new PanelKas(), "kas");
+        mainContainer.add(new PanelLaporan(), "laporan");
+        mainContainer.add(new PanelMahasiswa(), "mahasiswa");
+        mainContainer.add(new PanelPemasukan(), "pemasukan");
+        mainContainer.add(new PanelPengeluaran(), "pengeluaran");
+        mainContainer.add(new PanelPengguna(), "pengguna");
     }
 
     /**
@@ -90,6 +106,8 @@ public class FrameMain extends javax.swing.JFrame {
         mainContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         sidebarContainer.setBackground(new java.awt.Color(9, 56, 139));
         sidebarContainer.setPreferredSize(new java.awt.Dimension(256, 720));
@@ -355,41 +373,49 @@ public class FrameMain extends javax.swing.JFrame {
         getContentPane().add(mainContainer, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPemasukanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPemasukanActionPerformed
         // TODO add your handling code here:
         setActiveMenu(btnPemasukan);
+        cardLayout.show(mainContainer, "pemasukan");
     }//GEN-LAST:event_btnPemasukanActionPerformed
 
     private void btnMhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMhsActionPerformed
         // TODO add your handling code here:
         setActiveMenu(btnMhs);
+        cardLayout.show(mainContainer, "mahasiswa");
     }//GEN-LAST:event_btnMhsActionPerformed
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
         // TODO add your handling code here:
         setActiveMenu(btnDashboard);
+        cardLayout.show(mainContainer, "dashboard");
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnBayarKasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarKasActionPerformed
         // TODO add your handling code here:
         setActiveMenu(btnBayarKas);
+        cardLayout.show(mainContainer, "kas");
     }//GEN-LAST:event_btnBayarKasActionPerformed
 
     private void btnPengeluaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPengeluaranActionPerformed
         // TODO add your handling code here:
         setActiveMenu(btnPengeluaran);
+        cardLayout.show(mainContainer, "pengeluaran");
     }//GEN-LAST:event_btnPengeluaranActionPerformed
 
     private void btnLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaporanActionPerformed
         // TODO add your handling code here:
         setActiveMenu(btnLaporan);
+        cardLayout.show(mainContainer, "laporan");
     }//GEN-LAST:event_btnLaporanActionPerformed
 
     private void btnPenggunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPenggunaActionPerformed
         // TODO add your handling code here:
         setActiveMenu(btnPengguna);
+        cardLayout.show(mainContainer, "pengguna");
     }//GEN-LAST:event_btnPenggunaActionPerformed
 
     /**
