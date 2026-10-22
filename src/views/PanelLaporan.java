@@ -53,7 +53,12 @@ public class PanelLaporan extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -77,7 +82,9 @@ public class PanelLaporan extends javax.swing.JPanel {
         lblSelamatDatang3 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -119,18 +126,20 @@ public class PanelLaporan extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSelamatDatang)
-                    .addComponent(jLabel1))
-                .addContainerGap(799, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(795, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblSelamatDatang)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblSelamatDatang)
-                .addGap(0, 0, 0)
                 .addComponent(jLabel1)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
@@ -280,35 +289,61 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 6, 6));
         jPanel3.setPreferredSize(new java.awt.Dimension(984, 30));
+        jPanel3.setLayout(new java.awt.GridLayout());
 
         jLabel2.setText("Dari");
+        jPanel3.add(jLabel2);
 
         jLabel3.setText("Sampai");
+        jPanel3.add(jLabel3);
 
         jLabel4.setText("Jenis");
+        jPanel3.add(jLabel4);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(138, 138, 138)
-                .addComponent(jLabel3)
-                .addGap(121, 121, 121)
-                .addComponent(jLabel4)
-                .addContainerGap(644, Short.MAX_VALUE))
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 165, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)))
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 18, Short.MAX_VALUE)
         );
+
+        jPanel3.add(jPanel21);
+
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 165, Short.MAX_VALUE)
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 18, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel20);
+
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 165, Short.MAX_VALUE)
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 18, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel19);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
@@ -316,6 +351,8 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 25, 25));
         jPanel6.setPreferredSize(new java.awt.Dimension(984, 80));
         jPanel6.setLayout(new java.awt.GridLayout(1, 6, 15, 0));
+        jPanel6.add(jDateChooser1);
+        jPanel6.add(jDateChooser2);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
@@ -430,7 +467,7 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -449,7 +486,7 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -491,7 +528,7 @@ public class PanelLaporan extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblSelamatDatang3))
                     .addComponent(jLabel7))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -503,7 +540,7 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -520,10 +557,21 @@ public class PanelLaporan extends javax.swing.JPanel {
         jPanel17.setPreferredSize(new java.awt.Dimension(1006, 60));
         jPanel17.setLayout(new java.awt.CardLayout());
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setText("Rincian Transaksi - Oktober 2026");
-        jPanel17.add(jLabel11, "card2");
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel18.setLayout(new java.awt.BorderLayout());
+
+        jLabel11.setFont(new java.awt.Font("Plus Jakarta Display", 0, 18)); // NOI18N
+        jLabel11.setText("Rincian Transaksi  -");
+        jLabel11.setMaximumSize(new java.awt.Dimension(200, 60));
+        jLabel11.setMinimumSize(new java.awt.Dimension(43, 60));
+        jLabel11.setPreferredSize(new java.awt.Dimension(160, 60));
+        jPanel18.add(jLabel11, java.awt.BorderLayout.LINE_START);
+
+        jLabel12.setFont(new java.awt.Font("Plus Jakarta Display", 0, 18)); // NOI18N
+        jLabel12.setText("Oktober 2026");
+        jPanel18.add(jLabel12, java.awt.BorderLayout.CENTER);
+
+        jPanel17.add(jPanel18, "card2");
 
         jPanel16.add(jPanel17, java.awt.BorderLayout.PAGE_START);
 
@@ -575,9 +623,12 @@ public class PanelLaporan extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -595,7 +646,11 @@ public class PanelLaporan extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
