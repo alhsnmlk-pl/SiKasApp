@@ -32,7 +32,7 @@ public class modelPembayaranKas {
     }
 
     public void setIdPembayaranKas() {
-        this.idPembayaranKas = UUID.randomUUID().toString();;
+        this.idPembayaranKas = UUID.randomUUID().toString();
     }
 
     public String getTanggal() {

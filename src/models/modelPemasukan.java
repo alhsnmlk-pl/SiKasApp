@@ -13,15 +13,17 @@ import java.util.UUID;
 public class modelPemasukan {
     
     private String idPemasukan, tanggal, keterangan, idPengguna;
+    private int jumlah;
 
     public modelPemasukan() {
     }
 
-    public modelPemasukan(String idPemasukan, String tanggal, String keterangan, String idPengguna) {
+    public modelPemasukan(String idPemasukan, String tanggal, String keterangan, String idPengguna, int jumlah) {
         this.idPemasukan = idPemasukan;
         this.tanggal = tanggal;
         this.keterangan = keterangan;
         this.idPengguna = idPengguna;
+        this.jumlah = jumlah;
     }
 
     public String getIdPemasukan() {
@@ -55,6 +57,16 @@ public class modelPemasukan {
     public void setIdPengguna(String idPengguna) {
         this.idPengguna = idPengguna;
     }
+
+    public int getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
+    }
+    
+    
     
     
     
