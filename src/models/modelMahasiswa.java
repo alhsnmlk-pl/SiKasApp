@@ -10,7 +10,7 @@ package models;
  */
 public class modelMahasiswa {
     
-    String NIM, nama;
+    private String NIM, nama;
 
     public modelMahasiswa() {
     }
@@ -35,7 +35,5 @@ public class modelMahasiswa {
     public void setNama(String nama) {
         this.nama = nama;
     }
-    
-    
     
 }
