@@ -4,6 +4,13 @@
  */
 package models;
 
+import config.koneksi;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -13,17 +20,17 @@ import java.util.UUID;
 public class modelPemasukan {
     
     private String idPemasukan, tanggal, keterangan, idPengguna;
-    private int jumlah;
+    private int nominal;
 
     public modelPemasukan() {
     }
 
-    public modelPemasukan(String idPemasukan, String tanggal, String keterangan, String idPengguna, int jumlah) {
+    public modelPemasukan(String idPemasukan, String tanggal, String keterangan, String idPengguna, int nominal) {
         this.idPemasukan = idPemasukan;
         this.tanggal = tanggal;
         this.keterangan = keterangan;
         this.idPengguna = idPengguna;
-        this.jumlah = jumlah;
+        this.nominal = nominal;
     }
 
     public String getIdPemasukan() {
@@ -58,16 +65,113 @@ public class modelPemasukan {
         this.idPengguna = idPengguna;
     }
 
-    public int getJumlah() {
-        return jumlah;
+    public int getNominal() {
+        return nominal;
     }
 
     public void setJumlah(int jumlah) {
-        this.jumlah = jumlah;
+        this.nominal = jumlah;
     }
     
     
-    
+    public boolean tambah() {
+        String sql = "INSERT INTO pemasukan "
+                + "(id_pemasukan, tanggal, nominal, keterangan, id_pengguna) "
+                + "VALUES (?, ?, ?, ?, ?)";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, idPemasukan);
+            ps.setString(2, tanggal);
+            ps.setInt(3, nominal);
+            ps.setString(4, keterangan);
+            ps.setString(5, idPengguna);
+
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public boolean ubah() {
+        String sql = "UPDATE pemasukan SET "
+                + "tanggal = ?, nominal = ?, keterangan = ?, id_penguna = ? "
+                + "WHERE id_pemasukan = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, tanggal);
+            ps.setInt(2, nominal);
+            ps.setString(3, keterangan);
+            ps.setString(4, idPengguna);
+            ps.setString(5, idPemasukan);
+
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+
+            return false;
+        }
+
+    }
+
+    public boolean hapus() {
+        String sql = "DELETE FROM pemasukan WHERE id_pemasukan = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, idPemasukan);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public List<modelPemasukan> tampilSemua() {
+        List<modelPemasukan> daftar = new ArrayList<>();
+
+        String sql = "SELECT "
+                + "p.id_pemasukan, "
+                + "p.tanggal, "
+                + "u.nama_pengguna, "
+                + "p.nominal, "
+                + "p.keterangan "
+                + "FROM pemasukan p "
+                + "JOIN pengguna u "
+                + "ON p.id_pengguna = u.id_pengguna "
+                + "ORDER BY p.tanggal DESC";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                modelPemasukan pemasukan = new modelPemasukan(
+                        rs.getString("id_pemasukan"),
+                        rs.getString("tanggal"),
+                        rs.getString("keterangan"),
+                        rs.getString("id_pengguna"),
+                        rs.getInt("nominal")
+                );
+
+                daftar.add(pemasukan);
+            }
+        } catch (SQLException e) {
+            System.out.println("Gagal menampilkan pemasukan: " + e.getMessage());
+        }
+        return daftar;
+
+    }
     
     
 }

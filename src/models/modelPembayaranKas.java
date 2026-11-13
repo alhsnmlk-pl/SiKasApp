@@ -4,6 +4,13 @@
  */
 package models;
 
+import config.koneksi;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -73,6 +80,112 @@ public class modelPembayaranKas {
 
     public void setJumlahBayar(int jumlahBayar) {
         this.jumlahBayar = jumlahBayar;
+    }
+    
+    public boolean tambah() {
+        String sql = "INSERT INTO pembayaran_kas "
+                + "( id_pembayaran, tanggal, status, id_pengguna, NIM, jumlah_bayar ) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, idPembayaranKas);
+            ps.setString(2, tanggal);
+            ps.setString(3, status);
+            ps.setString(4, idPengguna);
+            ps.setString(5, NIM);
+            ps.setInt(6, jumlahBayar);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public boolean ubah() {
+        String sql = "UPDATE pembayaran_kas SET "
+                + "tanggal = ?, status = ?, id_pengguna = ?, NIM = ?, jumlah_bayar = ? "
+                + "WHERE id_pembayaran = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, tanggal);
+            ps.setString(2, status);
+            ps.setString(3, idPengguna);
+            ps.setString(4, NIM);
+            ps.setInt(5, jumlahBayar);
+            ps.setString(6, idPembayaranKas);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public boolean hapus() {
+        String sql = "DELETE FROM pembayaran_kas WHERE id_pembayaran = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, idPembayaranKas);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public List<modelPembayaranKas> tampilSemua() {
+        List<modelPembayaranKas> daftar = new ArrayList<>();
+
+        String sql = "SELECT "
+                + "p.id_pembayaran, "
+                + "p.tanggal, "
+                + "m.nama, "
+                + "p.jumlah_bayar, "
+                + "p.status, "
+                + "u.nama_pengguna "
+                + "FROM pembayaran_kas p "
+                + "JOIN pengguna u "
+                + "ON p.id_pengguna = u.id_pengguna "
+                + "JOIN mahasiswa m "
+                + "ON p.nim = m.nim "
+                + "ORDER BY p.tanggal DESC";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                modelPembayaranKas pembayaran = new modelPembayaranKas(
+                        rs.getString("id_pembayaran"),
+                        rs.getString("tanggal"),
+                        rs.getString("status"),
+                        rs.getString("id_pengguna"),
+                        rs.getString("NIM"),
+                        rs.getInt("jumlah_bayar")
+                );
+
+                daftar.add(pembayaran);
+            }
+        } catch (SQLException e) {
+            System.out.println("Gagal menampilkan pembayaran: " + e.getMessage());
+        }
+        return daftar;
+
     }
     
     

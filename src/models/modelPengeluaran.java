@@ -4,6 +4,13 @@
  */
 package models;
 
+import config.koneksi;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -64,6 +71,107 @@ public class modelPengeluaran {
 
     public void setNominal(int nominal) {
         this.nominal = nominal;
+    }
+    
+    
+    public boolean tambah() {
+        String sql = "INSERT INTO pengeluaran "
+                + "( id_pengeluaran, tanggal, keterangan, nominal, id_pengguna) "
+                + "VALUES (?, ?, ?, ?, ?)";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, idPengeluaran);
+            ps.setString(2, tanggal);
+            ps.setString(3, keterangan);
+            ps.setInt(4, nominal);
+            ps.setString(5, idPengguna);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public boolean ubah() {
+        String sql = "UPDATE pengeluaran SET "
+                + "tanggal = ?, keterangan = ?, nominal = ?, id_pengguna = ? "
+                + "WHERE id_pengeluaran = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, tanggal);
+            ps.setString(2, keterangan);
+            ps.setInt(3, nominal);
+            ps.setString(4, idPengguna);
+            ps.setString(5, idPengeluaran);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public boolean hapus() {
+        String sql = "DELETE FROM pengeluaran WHERE id_pengeluaran = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, idPengeluaran);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public List<modelPengeluaran> tampilSemua() {
+        List<modelPengeluaran> daftar = new ArrayList<>();
+
+        String sql = "SELECT "
+                + "p.id_pengeluaran, "
+                + "p.tanggal, "
+                + "u.nama_pengguna, "
+                + "p.nominal, "
+                + "p.keterangan "
+                + "FROM pengeluaran p "
+                + "JOIN pengguna u "
+                + "ON p.id_pengguna = u.id_pengguna "
+                + "ORDER BY p.tanggal DESC";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                modelPengeluaran pengeluaran = new modelPengeluaran(
+                        rs.getString("id_pengeluaran"),
+                        rs.getString("tanggal"),
+                        rs.getString("keterangan"),
+                        rs.getString("id_pengguna"),
+                        rs.getInt("nominal")
+                );
+
+                daftar.add(pengeluaran);
+            }
+        } catch (SQLException e) {
+            System.out.println("Gagal menampilkan pengguna: " + e.getMessage());
+        }
+        return daftar;
+
     }
     
     

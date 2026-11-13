@@ -4,6 +4,14 @@
  */
 package models;
 
+import config.koneksi;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Al
@@ -36,4 +44,86 @@ public class modelMahasiswa {
         this.nama = nama;
     }
     
+    
+    public boolean tambah() {
+        String sql = "INSERT INTO mahasiswa "
+                + "(NIM, nama) "
+                + "VALUES (?, ?)";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, NIM);
+            ps.setString(2, nama);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public boolean ubah() {
+        String sql = "UPDATE mahasiswa SET "
+                + "nama = ? "
+                + "WHERE NIM = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, nama);
+            ps.setString(2, NIM);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public boolean hapus() {
+        String sql = "DELETE FROM mahasiswa WHERE NIM = ?";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, NIM);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+    }
+
+    public List<modelMahasiswa> tampilSemua() {
+        List<modelMahasiswa> daftar = new ArrayList<>();
+
+        String sql = "SELECT * FROM mahasiswa ORDER BY nama ASC";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                modelMahasiswa mhs = new modelMahasiswa(
+                        rs.getString("NIM"),
+                        rs.getString("nama")
+                );
+
+                daftar.add(mhs);
+            }
+        } catch (SQLException e) {
+            System.out.println("Gagal menampilkan mahasiswa: " + e.getMessage());
+        }
+        return daftar;
+
+    }
 }
