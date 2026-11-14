@@ -72,6 +72,10 @@ public class modelPemasukan {
     public void setJumlah(int jumlah) {
         this.nominal = jumlah;
     }
+
+    public void setNominal(int nominal) {
+        this.nominal = nominal;
+    }
     
     
     public boolean tambah() {
@@ -79,9 +83,8 @@ public class modelPemasukan {
                 + "(id_pemasukan, tanggal, nominal, keterangan, id_pengguna) "
                 + "VALUES (?, ?, ?, ?, ?)";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPemasukan);
             ps.setString(2, tanggal);
@@ -90,20 +93,20 @@ public class modelPemasukan {
             ps.setString(5, idPengguna);
 
             return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
 
+        } catch (SQLException e) {
+            System.out.println("Gagal menambah pemasukan: " + e.getMessage());
             return false;
         }
     }
 
     public boolean ubah() {
         String sql = "UPDATE pemasukan SET "
-                + "tanggal = ?, nominal = ?, keterangan = ?, id_penguna = ? "
+                + "tanggal = ?, nominal = ?, keterangan = ?, id_pengguna = ? "
                 + "WHERE id_pemasukan = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, tanggal);
             ps.setInt(2, nominal);
@@ -112,8 +115,9 @@ public class modelPemasukan {
             ps.setString(5, idPemasukan);
 
             return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
 
+        } catch (SQLException e) {
+            System.out.println("Gagal mengubah pemasukan: " + e.getMessage());
             return false;
         }
 
@@ -122,16 +126,15 @@ public class modelPemasukan {
     public boolean hapus() {
         String sql = "DELETE FROM pemasukan WHERE id_pemasukan = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPemasukan);
 
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menghapus pemasukan: " + e.getMessage());
             return false;
         }
     }
@@ -139,21 +142,13 @@ public class modelPemasukan {
     public List<modelPemasukan> tampilSemua() {
         List<modelPemasukan> daftar = new ArrayList<>();
 
-        String sql = "SELECT "
-                + "p.id_pemasukan, "
-                + "p.tanggal, "
-                + "u.nama_pengguna, "
-                + "p.nominal, "
-                + "p.keterangan "
-                + "FROM pemasukan p "
-                + "JOIN pengguna u "
-                + "ON p.id_pengguna = u.id_pengguna "
-                + "ORDER BY p.tanggal DESC";
+        String sql = "SELECT id_pemasukan, tanggal, keterangan, id_pengguna, nominal "
+                + "FROM pemasukan "
+                + "ORDER BY tanggal DESC";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 modelPemasukan pemasukan = new modelPemasukan(

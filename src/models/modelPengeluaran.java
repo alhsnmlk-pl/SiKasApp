@@ -76,12 +76,11 @@ public class modelPengeluaran {
     
     public boolean tambah() {
         String sql = "INSERT INTO pengeluaran "
-                + "( id_pengeluaran, tanggal, keterangan, nominal, id_pengguna) "
+                + "(id_pengeluaran, tanggal, keterangan, nominal, id_pengguna) "
                 + "VALUES (?, ?, ?, ?, ?)";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPengeluaran);
             ps.setString(2, tanggal);
@@ -92,7 +91,7 @@ public class modelPengeluaran {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menambah pengeluaran: " + e.getMessage());
             return false;
         }
     }
@@ -102,9 +101,8 @@ public class modelPengeluaran {
                 + "tanggal = ?, keterangan = ?, nominal = ?, id_pengguna = ? "
                 + "WHERE id_pengeluaran = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, tanggal);
             ps.setString(2, keterangan);
@@ -115,7 +113,7 @@ public class modelPengeluaran {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal mengubah pengeluaran: " + e.getMessage());
             return false;
         }
     }
@@ -123,16 +121,15 @@ public class modelPengeluaran {
     public boolean hapus() {
         String sql = "DELETE FROM pengeluaran WHERE id_pengeluaran = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPengeluaran);
 
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menghapus pengeluaran: " + e.getMessage());
             return false;
         }
     }
@@ -140,21 +137,13 @@ public class modelPengeluaran {
     public List<modelPengeluaran> tampilSemua() {
         List<modelPengeluaran> daftar = new ArrayList<>();
 
-        String sql = "SELECT "
-                + "p.id_pengeluaran, "
-                + "p.tanggal, "
-                + "u.nama_pengguna, "
-                + "p.nominal, "
-                + "p.keterangan "
-                + "FROM pengeluaran p "
-                + "JOIN pengguna u "
-                + "ON p.id_pengguna = u.id_pengguna "
-                + "ORDER BY p.tanggal DESC";
+        String sql = "SELECT id_pengeluaran, tanggal, keterangan, id_pengguna, nominal "
+                + "FROM pengeluaran "
+                + "ORDER BY tanggal DESC";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 modelPengeluaran pengeluaran = new modelPengeluaran(
@@ -168,7 +157,7 @@ public class modelPengeluaran {
                 daftar.add(pengeluaran);
             }
         } catch (SQLException e) {
-            System.out.println("Gagal menampilkan pengguna: " + e.getMessage());
+            System.out.println("Gagal menampilkan pengeluaran: " + e.getMessage());
         }
         return daftar;
 

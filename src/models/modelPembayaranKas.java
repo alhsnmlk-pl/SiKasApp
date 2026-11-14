@@ -84,12 +84,11 @@ public class modelPembayaranKas {
     
     public boolean tambah() {
         String sql = "INSERT INTO pembayaran_kas "
-                + "( id_pembayaran, tanggal, status, id_pengguna, NIM, jumlah_bayar ) "
+                + "(id_pembayaran, tanggal, status, id_pengguna, NIM, jumlah_bayar) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPembayaranKas);
             ps.setString(2, tanggal);
@@ -101,7 +100,7 @@ public class modelPembayaranKas {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menambah pembayaran kas: " + e.getMessage());
             return false;
         }
     }
@@ -111,9 +110,8 @@ public class modelPembayaranKas {
                 + "tanggal = ?, status = ?, id_pengguna = ?, NIM = ?, jumlah_bayar = ? "
                 + "WHERE id_pembayaran = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, tanggal);
             ps.setString(2, status);
@@ -125,7 +123,7 @@ public class modelPembayaranKas {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal mengubah pembayaran kas: " + e.getMessage());
             return false;
         }
     }
@@ -133,16 +131,15 @@ public class modelPembayaranKas {
     public boolean hapus() {
         String sql = "DELETE FROM pembayaran_kas WHERE id_pembayaran = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPembayaranKas);
 
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menghapus pembayaran kas: " + e.getMessage());
             return false;
         }
     }
@@ -150,24 +147,13 @@ public class modelPembayaranKas {
     public List<modelPembayaranKas> tampilSemua() {
         List<modelPembayaranKas> daftar = new ArrayList<>();
 
-        String sql = "SELECT "
-                + "p.id_pembayaran, "
-                + "p.tanggal, "
-                + "m.nama, "
-                + "p.jumlah_bayar, "
-                + "p.status, "
-                + "u.nama_pengguna "
-                + "FROM pembayaran_kas p "
-                + "JOIN pengguna u "
-                + "ON p.id_pengguna = u.id_pengguna "
-                + "JOIN mahasiswa m "
-                + "ON p.nim = m.nim "
-                + "ORDER BY p.tanggal DESC";
+        String sql = "SELECT id_pembayaran, tanggal, status, id_pengguna, NIM, jumlah_bayar "
+                + "FROM pembayaran_kas "
+                + "ORDER BY tanggal DESC";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 modelPembayaranKas pembayaran = new modelPembayaranKas(
@@ -182,7 +168,7 @@ public class modelPembayaranKas {
                 daftar.add(pembayaran);
             }
         } catch (SQLException e) {
-            System.out.println("Gagal menampilkan pembayaran: " + e.getMessage());
+            System.out.println("Gagal menampilkan pembayaran kas: " + e.getMessage());
         }
         return daftar;
 

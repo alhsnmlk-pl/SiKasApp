@@ -50,9 +50,8 @@ public class modelMahasiswa {
                 + "(NIM, nama) "
                 + "VALUES (?, ?)";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, NIM);
             ps.setString(2, nama);
@@ -60,7 +59,7 @@ public class modelMahasiswa {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menambah mahasiswa: " + e.getMessage());
             return false;
         }
     }
@@ -70,9 +69,8 @@ public class modelMahasiswa {
                 + "nama = ? "
                 + "WHERE NIM = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, nama);
             ps.setString(2, NIM);
@@ -80,7 +78,7 @@ public class modelMahasiswa {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal mengubah mahasiswa: " + e.getMessage());
             return false;
         }
     }
@@ -88,16 +86,15 @@ public class modelMahasiswa {
     public boolean hapus() {
         String sql = "DELETE FROM mahasiswa WHERE NIM = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, NIM);
 
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menghapus mahasiswa: " + e.getMessage());
             return false;
         }
     }
@@ -105,12 +102,13 @@ public class modelMahasiswa {
     public List<modelMahasiswa> tampilSemua() {
         List<modelMahasiswa> daftar = new ArrayList<>();
 
-        String sql = "SELECT * FROM mahasiswa ORDER BY nama ASC";
+        String sql = "SELECT NIM, nama "
+                + "FROM mahasiswa "
+                + "ORDER BY nama ASC";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 modelMahasiswa mhs = new modelMahasiswa(

@@ -69,9 +69,8 @@ public class modelPengguna {
                 + "( id_pengguna, nama_pengguna, password, role) "
                 + "VALUES (?, ?, ?, ?)";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPengguna);
             ps.setString(2, namaPengguna);
@@ -81,7 +80,7 @@ public class modelPengguna {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menambah pengguna: " + e.getMessage());
             return false;
         }
     }
@@ -91,9 +90,8 @@ public class modelPengguna {
                 + "nama_pengguna = ?, password = ?, role = ? "
                 + "WHERE id_pengguna = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, namaPengguna);
             ps.setString(2, password);
@@ -103,7 +101,7 @@ public class modelPengguna {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal mengubah pengguna: " + e.getMessage());
             return false;
         }
     }
@@ -111,16 +109,15 @@ public class modelPengguna {
     public boolean hapus() {
         String sql = "DELETE FROM pengguna WHERE id_pengguna = ?";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, idPengguna);
 
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-
+            System.out.println("Gagal menghapus pengguna: " + e.getMessage());
             return false;
         }
     }
@@ -130,10 +127,9 @@ public class modelPengguna {
 
         String sql = "SELECT * FROM pengguna ORDER BY nama_pengguna ASC";
 
-        try {
-            Connection conn = koneksi.getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+        try (Connection conn = koneksi.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 modelPengguna pengguna = new modelPengguna(

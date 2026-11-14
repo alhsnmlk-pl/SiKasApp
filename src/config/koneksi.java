@@ -14,22 +14,11 @@ import java.sql.SQLException;
  */
 public class koneksi {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/si_kas_app";
+    private static final String URL = "jdbc:mysql://localhost:3306/db_kas?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Jakarta";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
-    public static Connection getConnection() {
-        Connection conn = null;
-
-        try {
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (SQLException e) {
-            System.out.println("Koneksi database gagal: " + e.getMessage());
-        }
-        return conn;
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
-
-
-
-
