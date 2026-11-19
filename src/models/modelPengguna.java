@@ -19,13 +19,14 @@ import java.util.UUID;
  */
 public class modelPengguna {
 
-    private String idPengguna, namaPengguna, password, role;
+    private String idPengguna, namaPengguna, username, role, password;
 
-    public modelPengguna(String idPengguna, String namaPengguna, String password, String role) {
+    public modelPengguna(String idPengguna, String namaPengguna, String username, String role, String password) {
         this.idPengguna = idPengguna;
         this.namaPengguna = namaPengguna;
-        this.password = password;
+        this.username = username;
         this.role = role;
+        this.password = password;
     }
 
     public modelPengguna() {
@@ -45,6 +46,14 @@ public class modelPengguna {
 
     public void setNamaPengguna(String namaPengguna) {
         this.namaPengguna = namaPengguna;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -67,8 +76,8 @@ public class modelPengguna {
     //Tambah
     public boolean tambah() {
         String sql = "INSERT INTO pengguna "
-                + "(id_pengguna, nama_pengguna, password, role) "
-                + "VALUES (?, ?, ?, ?)";
+                + "(id_pengguna, nama_pengguna, username, role, password) "
+                + "VALUES (?, ?, ?, ?, md5(?))";
 
         try {
             Connection conn = koneksi.getConnection();
@@ -76,30 +85,44 @@ public class modelPengguna {
 
             ps.setString(1, idPengguna);
             ps.setString(2, namaPengguna);
-            ps.setString(3, password);
+            ps.setString(3, username);
             ps.setString(4, role);
+            ps.setString(5, password);
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-
             return false;
         }
     }
 
     //ubah
     public boolean ubah() {
-        String sql = "UPDATE pengguna SET "
-                + "nama_pengguna = ?, password = ?, role = ? "
-                + "WHERE id_pengguna = ?";
+        String sql;
+        if (password != null || password.isEmpty()) {
+            sql = "UPDATE pengguna SET "
+                    + "nama_pengguna = ?, username = ?, role = ? "
+                    + "WHERE id_pengguna = ?";
+        } else {
+            sql = "UPDATE pengguna SET "
+                    + "nama_pengguna = ?, username = ?, role = ?, password = md5(?) "
+                    + "WHERE id_pengguna = ?";
+        }
 
         try {
             Connection conn = koneksi.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-
+            
             ps.setString(1, namaPengguna);
-            ps.setString(2, password);
-            ps.setString(3, role);
-            ps.setString(4, idPengguna);
+            ps.setString(2, username);
+
+            if (password != null || password.isEmpty()) {
+                ps.setString(3, role);
+                ps.setString(4, idPengguna);
+            } else {
+                ps.setString(3, role);
+                ps.setString(4, password);
+                ps.setString(5, idPengguna);
+            }
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -142,14 +165,15 @@ public class modelPengguna {
                 modelPengguna pengguna = new modelPengguna(
                         rs.getString("id_pengguna"),
                         rs.getString("nama_pengguna"),
-                        rs.getString("password"),
-                        rs.getString("role")
+                        rs.getString("username"),
+                        rs.getString("role"),
+                        rs.getString("password")
                 );
 
                 daftar.add(pengguna);
             }
-        }catch (SQLException e) {
-            System.out.println( "Gagal menampilkan pengguna: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Gagal menampilkan pengguna: " + e.getMessage());
         }
 
         return daftar;

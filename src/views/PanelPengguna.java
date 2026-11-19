@@ -4,6 +4,12 @@
  */
 package views;
 
+import java.util.List;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import models.modelPengguna;
+
 /**
  *
  * @author Al
@@ -15,6 +21,39 @@ public class PanelPengguna extends javax.swing.JPanel {
      */
     public PanelPengguna() {
         initComponents();
+
+        loadTable();
+        
+        tID.setVisible(false);
+    }
+    
+    void reset(){
+        tID.setText(null);
+        tNama.setText(null);
+        cRole.setSelectedItem(null);
+        tPassword.setText(null);
+    }
+
+    void loadTable() {
+        DefaultTableModel tabel = new DefaultTableModel();
+        tabel.addColumn("ID Pengguna");
+        tabel.addColumn("Nama Pengguna");
+        tabel.addColumn("Username");
+        tabel.addColumn("Role");
+
+        modelPengguna pengguna = new modelPengguna();
+        List<modelPengguna> daftar = pengguna.tampilsemua();
+
+        for (int i = 0; i < daftar.size(); i++) {
+            String id = daftar.get(i).getIdPengguna();
+            String nama = daftar.get(i).getNamaPengguna();
+            String username = daftar.get(i).getUsername();
+            String role = daftar.get(i).getRole();
+
+            Object[] baris = {id, nama, username, role};
+            tabel.addRow(baris);
+        }
+        tPengguna.setModel(tabel);
     }
 
     /**
@@ -33,36 +72,36 @@ public class PanelPengguna extends javax.swing.JPanel {
         lblSelamatDatang = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        tID = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         lblSelamatDatang5 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
+        tUsername = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        tNama = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        bSimpan = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tPassword = new javax.swing.JPasswordField();
         jPanel12 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        bUbah = new javax.swing.JButton();
+        bHapus = new javax.swing.JButton();
+        cRole = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tPengguna = new javax.swing.JTable();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -110,13 +149,6 @@ public class PanelPengguna extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(240, 243, 247));
 
-        jButton1.setBackground(new java.awt.Color(25, 118, 210));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TablerPlus.png"))); // NOI18N
-        jButton1.setText("Tambah Pengguna");
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-filter-20.png"))); // NOI18N
         jButton2.setText("Filter");
@@ -130,7 +162,6 @@ public class PanelPengguna extends javax.swing.JPanel {
         jTextField1.setText("Cari nama pengguna...");
         jTextField1.setBorder(null);
         jTextField1.setOpaque(true);
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -160,8 +191,9 @@ public class PanelPengguna extends javax.swing.JPanel {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
+                .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,9 +201,9 @@ public class PanelPengguna extends javax.swing.JPanel {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 16, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -193,26 +225,11 @@ public class PanelPengguna extends javax.swing.JPanel {
         jLabel16.setText("Username");
 
         jPanel22.setPreferredSize(new java.awt.Dimension(117, 36));
+        jPanel22.setLayout(new java.awt.BorderLayout());
 
-        jTextField7.setBackground(new java.awt.Color(242, 242, 242));
-        jTextField7.setBorder(null);
-
-        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
-        jPanel22.setLayout(jPanel22Layout);
-        jPanel22Layout.setHorizontalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField7)
-                .addContainerGap())
-        );
-        jPanel22Layout.setVerticalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        tUsername.setBackground(new java.awt.Color(242, 242, 242));
+        tUsername.setBorder(null);
+        jPanel22.add(tUsername, java.awt.BorderLayout.CENTER);
 
         jLabel6.setFont(new java.awt.Font("Plus Jakarta Text", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -222,8 +239,8 @@ public class PanelPengguna extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Nama Lengkap");
 
-        jTextField2.setBackground(new java.awt.Color(242, 242, 242));
-        jTextField2.setBorder(null);
+        tNama.setBackground(new java.awt.Color(242, 242, 242));
+        tNama.setBorder(null);
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/LucideUser.png"))); // NOI18N
@@ -236,17 +253,15 @@ public class PanelPengguna extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tNama))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(tNama, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jLabel11.setFont(new java.awt.Font("Plus Jakarta Text", 0, 14)); // NOI18N
@@ -257,12 +272,12 @@ public class PanelPengguna extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Password");
 
-        jButton3.setBackground(new java.awt.Color(25, 118, 210));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/BoxiconsSave.png"))); // NOI18N
-        jButton3.setText("Simpan");
-        jButton3.addActionListener(this::jButton3ActionPerformed);
+        bSimpan.setBackground(new java.awt.Color(25, 118, 210));
+        bSimpan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bSimpan.setForeground(new java.awt.Color(255, 255, 255));
+        bSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/BoxiconsSave.png"))); // NOI18N
+        bSimpan.setText("Simpan");
+        bSimpan.addActionListener(this::bSimpanActionPerformed);
 
         jPanel11.setPreferredSize(new java.awt.Dimension(311, 36));
 
@@ -271,9 +286,8 @@ public class PanelPengguna extends javax.swing.JPanel {
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jLabel4.setInheritsPopupMenu(false);
 
-        jPasswordField1.setBackground(new java.awt.Color(242, 242, 242));
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.setBorder(null);
+        tPassword.setBackground(new java.awt.Color(242, 242, 242));
+        tPassword.setBorder(null);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -283,12 +297,12 @@ public class PanelPengguna extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1))
+                .addComponent(tPassword))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-            .addComponent(jPasswordField1)
+            .addComponent(tPassword)
         );
 
         jPanel12.setPreferredSize(new java.awt.Dimension(0, 36));
@@ -319,35 +333,37 @@ public class PanelPengguna extends javax.swing.JPanel {
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/BoxiconsPencil.png"))); // NOI18N
-        jButton4.setText("Ubah");
+        bUbah.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/BoxiconsPencil.png"))); // NOI18N
+        bUbah.setText("Ubah");
+        bUbah.addActionListener(this::bUbahActionPerformed);
 
-        jButton5.setBackground(new java.awt.Color(255, 204, 204));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 0, 51));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/EpDelete.png"))); // NOI18N
-        jButton5.setText("Hapus");
+        bHapus.setBackground(new java.awt.Color(255, 204, 204));
+        bHapus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bHapus.setForeground(new java.awt.Color(255, 0, 51));
+        bHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/EpDelete.png"))); // NOI18N
+        bHapus.setText("Hapus");
+        bHapus.addActionListener(this::bHapusActionPerformed);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bHapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+            .addComponent(bUbah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jComboBox2.setBackground(new java.awt.Color(242, 242, 242));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bendahara", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setBorder(null);
-        jComboBox2.setOpaque(true);
+        cRole.setBackground(new java.awt.Color(242, 242, 242));
+        cRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ketua", "bendahara" }));
+        cRole.setBorder(null);
+        cRole.setOpaque(true);
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -359,16 +375,16 @@ public class PanelPengguna extends javax.swing.JPanel {
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cRole, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel23Layout.setVerticalGroup(
@@ -390,13 +406,13 @@ public class PanelPengguna extends javax.swing.JPanel {
                 .addGap(4, 4, 4)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox2))
+                    .addComponent(cRole))
                 .addGap(16, 16, 16)
                 .addComponent(jLabel13)
                 .addGap(4, 4, 4)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -404,7 +420,7 @@ public class PanelPengguna extends javax.swing.JPanel {
 
         jPanel6.add(jPanel23, java.awt.BorderLayout.LINE_END);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tPengguna.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -415,7 +431,12 @@ public class PanelPengguna extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tPengguna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tPenggunaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tPengguna);
 
         jPanel6.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -424,23 +445,87 @@ public class PanelPengguna extends javax.swing.JPanel {
         add(jPanel24, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void bSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimpanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        modelPengguna pengguna = new modelPengguna(
+                UUID.randomUUID().toString(),
+                tNama.getText(),
+                tUsername.getText(),
+                cRole.getSelectedItem().toString(),
+                tPassword.getText()
+        );
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boolean simpan = pengguna.tambah();
+        if (simpan == true) {
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+        } else {
+            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan");
+        }
+        loadTable();
+    }//GEN-LAST:event_bSimpanActionPerformed
+
+    private void tPenggunaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tPenggunaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        int baris = tPengguna.getSelectedRow();
+
+        String id = tPengguna.getValueAt(baris, 0).toString();
+        String nama = tPengguna.getValueAt(baris, 1).toString();
+        String username = tPengguna.getValueAt(baris, 2).toString();
+        String role = tPengguna.getValueAt(baris, 3).toString();
+
+        tID.setText(id);
+        tNama.setText(nama);
+        tUsername.setText(username);
+        cRole.setSelectedItem(role);
+        tPassword.setText("");
+    }//GEN-LAST:event_tPenggunaMouseClicked
+
+    private void bUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUbahActionPerformed
+        // TODO add your handling code here:
+        modelPengguna pengguna = new modelPengguna(
+                tID.getText(),
+                tNama.getText(),
+                tUsername.getText(),
+                cRole.getSelectedItem().toString(),
+                tPassword.getText()
+        );
+
+        boolean simpan = pengguna.ubah();
+        if (simpan == true) {
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
+        } else {
+            JOptionPane.showMessageDialog(null, "Data Gagal Diubah");
+        }
+        loadTable();
+    }//GEN-LAST:event_bUbahActionPerformed
+
+    private void bHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHapusActionPerformed
+        // TODO add your handling code here:
+        modelPengguna pengguna = new modelPengguna(
+                tID.getText(),
+                tNama.getText(),
+                tUsername.getText(),
+                tPassword.getText(),
+                cRole.getSelectedItem().toString()
+        );
+
+        boolean hapus = pengguna.hapus();
+        if (hapus == true) {
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+        } else {
+            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
+        }
+        loadTable();
+    }//GEN-LAST:event_bHapusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bHapus;
+    private javax.swing.JButton bSimpan;
+    private javax.swing.JButton bUbah;
+    private javax.swing.JComboBox<String> cRole;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -463,13 +548,14 @@ public class PanelPengguna extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel lblSelamatDatang;
     private javax.swing.JLabel lblSelamatDatang5;
+    private javax.swing.JLabel tID;
+    private javax.swing.JTextField tNama;
+    private javax.swing.JPasswordField tPassword;
+    private javax.swing.JTable tPengguna;
+    private javax.swing.JTextField tUsername;
     // End of variables declaration//GEN-END:variables
 }

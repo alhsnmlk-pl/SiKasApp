@@ -4,6 +4,13 @@
  */
 package views;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import models.modelPengeluaran;
+
 /**
  *
  * @author Al
@@ -15,6 +22,41 @@ public class PanelPengeluaran extends javax.swing.JPanel {
      */
     public PanelPengeluaran() {
         initComponents();
+        
+        loadTable();
+        tID.setVisible(false);
+    }
+    
+    void reset(){
+        tID.setText(null);
+        tTanggal.setCalendar(null);
+        tPengguna.setText(null);
+        tNominal.setText(null);
+        tKeterangan.setText(null);
+    }
+    
+    void loadTable(){
+        DefaultTableModel tabel = new DefaultTableModel();
+        tabel.addColumn("ID Pengeluaran");
+        tabel.addColumn("Tanggal");
+        tabel.addColumn("Nama Pengguna");
+        tabel.addColumn("Nominal");
+        tabel.addColumn("Keterangan");
+
+        modelPengeluaran pengeluaran = new modelPengeluaran();
+        List<modelPengeluaran> daftar = pengeluaran.tampilsemua();
+
+        for (int i = 0; i < daftar.size(); i++) {
+            String id = daftar.get(i).getIdPengeluaran();
+            String tanggal = daftar.get(i).getTanggal();
+            String nama = daftar.get(i).getIdPengguna();
+            int nominal = daftar.get(i).getNominal();
+            String keterangan = daftar.get(i).getKeterangan();
+
+            Object[] baris = {id, tanggal, nama, nominal, keterangan};
+            tabel.addRow(baris);
+        }
+        tPengeluaran.setModel(tabel);
     }
 
     /**
@@ -30,6 +72,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelJudul = new javax.swing.JPanel();
         lblJudul = new javax.swing.JLabel();
         lblSubJudul = new javax.swing.JLabel();
+        tPengguna = new javax.swing.JLabel();
         panelKonten = new javax.swing.JPanel();
         panelTambahPengeluaran = new javax.swing.JPanel();
         lblTambahPengeluaran = new javax.swing.JLabel();
@@ -40,20 +83,19 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        tTanggal = new com.toedter.calendar.JDateChooser();
+        tNominal = new javax.swing.JTextField();
+        tKeterangan = new javax.swing.JTextField();
         panelRiwayatPengeluaran = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tPengeluaran = new javax.swing.JTable();
         panelHeaderRiwayat = new javax.swing.JPanel();
         lblRiwayatPengeluaran = new javax.swing.JLabel();
         lblTotalPengeluaran = new javax.swing.JLabel();
+        tID = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(240, 244, 252));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(24, 24, 24, 24));
@@ -77,6 +119,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelJudul.add(lblSubJudul);
 
         panelHeader.add(panelJudul, java.awt.BorderLayout.WEST);
+        panelHeader.add(tPengguna, java.awt.BorderLayout.LINE_END);
 
         add(panelHeader, java.awt.BorderLayout.NORTH);
 
@@ -103,6 +146,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         btnHapus.setText("Hapus");
         btnHapus.setFocusPainted(false);
         btnHapus.setPreferredSize(new java.awt.Dimension(110, 40));
+        btnHapus.addActionListener(this::btnHapusActionPerformed);
         panelTombol.add(btnHapus);
 
         btnUbah.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -111,6 +155,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         btnUbah.setText("Ubah");
         btnUbah.setFocusPainted(false);
         btnUbah.setPreferredSize(new java.awt.Dimension(110, 40));
+        btnUbah.addActionListener(this::btnUbahActionPerformed);
         panelTombol.add(btnUbah);
 
         btnSimpan.setBackground(new java.awt.Color(21, 115, 214));
@@ -119,6 +164,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         btnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Vector (1).png"))); // NOI18N
         btnSimpan.setText("Simpan");
         btnSimpan.setPreferredSize(new java.awt.Dimension(110, 40));
+        btnSimpan.addActionListener(this::btnSimpanActionPerformed);
         panelTombol.add(btnSimpan);
 
         panelTambahPengeluaran.add(panelTombol, java.awt.BorderLayout.SOUTH);
@@ -135,12 +181,8 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         jLabel1.setText("Tanggal");
         jPanel2.add(jLabel1);
 
-        jLabel2.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
-        jLabel2.setText("Kategori");
-        jPanel2.add(jLabel2);
-
         jLabel3.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
-        jLabel3.setText("Jumlah");
+        jLabel3.setText("Nominal");
         jPanel2.add(jLabel3);
 
         jLabel4.setFont(new java.awt.Font("Plus Jakarta Display", 0, 12)); // NOI18N
@@ -151,12 +193,9 @@ public class PanelPengeluaran extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.GridLayout(1, 4, 10, 0));
-        jPanel3.add(jDateChooser1);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel3.add(jComboBox1);
-        jPanel3.add(jTextField2);
-        jPanel3.add(jTextField3);
+        jPanel3.add(tTanggal);
+        jPanel3.add(tNominal);
+        jPanel3.add(tKeterangan);
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -171,7 +210,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(952, 280));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tPengeluaran.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -191,14 +230,19 @@ public class PanelPengeluaran extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setRowHeight(40);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("TANGGAL");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("KATEGORI");
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("KETERANGAN");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("JUMLAH");
+        tPengeluaran.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tPengeluaran.setRowHeight(40);
+        tPengeluaran.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tPengeluaranMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tPengeluaran);
+        if (tPengeluaran.getColumnModel().getColumnCount() > 0) {
+            tPengeluaran.getColumnModel().getColumn(0).setHeaderValue("TANGGAL");
+            tPengeluaran.getColumnModel().getColumn(1).setHeaderValue("KATEGORI");
+            tPengeluaran.getColumnModel().getColumn(2).setHeaderValue("KETERANGAN");
+            tPengeluaran.getColumnModel().getColumn(3).setHeaderValue("JUMLAH");
         }
 
         panelRiwayatPengeluaran.add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -220,6 +264,9 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         lblTotalPengeluaran.setPreferredSize(new java.awt.Dimension(150, 28));
         panelHeaderRiwayat.add(lblTotalPengeluaran, java.awt.BorderLayout.EAST);
 
+        tID.setText("jLabel2");
+        panelHeaderRiwayat.add(tID, java.awt.BorderLayout.CENTER);
+
         panelRiwayatPengeluaran.add(panelHeaderRiwayat, java.awt.BorderLayout.NORTH);
 
         panelKonten.add(panelRiwayatPengeluaran, java.awt.BorderLayout.CENTER);
@@ -227,24 +274,109 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         add(panelKonten, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // TODO add your handling code here:
+        String tanggal = new SimpleDateFormat("yyyy-MM-dd").format(tTanggal.getDate());
+        modelPengeluaran pengeluaran = new modelPengeluaran(
+                UUID.randomUUID().toString(),
+                tanggal,
+                tPengguna.getText(),
+                Integer.parseInt(tNominal.getText()),
+                tKeterangan.getText()
+        );
+
+        boolean simpan = pengeluaran.tambah();
+        if (simpan == true) {
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+        } else {
+            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan");
+        }
+        reset();
+        loadTable();
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void tPengeluaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tPengeluaranMouseClicked
+        // TODO add your handling code here:
+        int baris = tPengeluaran.getSelectedRow();
+
+        String id = tPengeluaran.getValueAt(baris, 0).toString();
+        String tanggal = tPengeluaran.getValueAt(baris, 1).toString();
+        String pengguna = tPengeluaran.getValueAt(baris, 2).toString();
+        String nominal = tPengeluaran.getValueAt(baris, 3).toString();
+        String keterangan = tPengeluaran.getValueAt(baris, 4).toString();
+
+        tID.setText(id);
+        
+        if (tanggal != null && !tanggal.isEmpty()) {
+            try {
+                tTanggal.setDate(java.sql.Date.valueOf(tanggal));
+            } catch (IllegalArgumentException e) {
+                // Jika gagal parsing tanggal, kosongkan field tanggal
+                tTanggal.setDate(null);
+            }
+        } else {
+            tTanggal.setDate(null);
+        }
+        
+        tPengguna.setText(pengguna);
+        tNominal.setText(nominal);
+        tKeterangan.setText(keterangan);
+    }//GEN-LAST:event_tPengeluaranMouseClicked
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        // TODO add your handling code here:
+        String tanggal = new SimpleDateFormat("yyyy-MM-dd").format(tTanggal.getDate());
+        modelPengeluaran pengeluaran = new modelPengeluaran(
+                tID.getText(),
+                tanggal,
+                tPengguna.getText(),
+                Integer.parseInt(tNominal.getText()),
+                tKeterangan.getText()
+        );
+
+        boolean ubah = pengeluaran.ubah();
+        if (ubah == true) {
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
+        } else {
+            JOptionPane.showMessageDialog(null, "Data Gagal Diubah");
+        }
+        reset();
+        loadTable();
+    }//GEN-LAST:event_btnUbahActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        String tanggal = new SimpleDateFormat("yyyy-MM-dd").format(tTanggal.getDate());
+        modelPengeluaran pengeluaran = new modelPengeluaran(
+                tID.getText(),
+                tanggal,
+                tPengguna.getText(),
+                Integer.parseInt(tNominal.getText()),
+                tKeterangan.getText()
+        );
+
+        boolean hapus = pengeluaran.hapus();
+        if (hapus == true) {
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+        } else {
+            JOptionPane.showMessageDialog(null, "Data Gagal Dihapus");
+        }
+        reset();
+        loadTable(); 
+    }//GEN-LAST:event_btnHapusActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnUbah;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblJudul;
     private javax.swing.JLabel lblRiwayatPengeluaran;
     private javax.swing.JLabel lblSubJudul;
@@ -257,5 +389,11 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     private javax.swing.JPanel panelRiwayatPengeluaran;
     private javax.swing.JPanel panelTambahPengeluaran;
     private javax.swing.JPanel panelTombol;
+    private javax.swing.JLabel tID;
+    private javax.swing.JTextField tKeterangan;
+    private javax.swing.JTextField tNominal;
+    private javax.swing.JTable tPengeluaran;
+    private javax.swing.JLabel tPengguna;
+    private com.toedter.calendar.JDateChooser tTanggal;
     // End of variables declaration//GEN-END:variables
 }

@@ -66,7 +66,7 @@ public class modelMahasiswa {
 
     //ubah
     public boolean ubah() {
-        String sql = "UPDATE pengguna SET "
+        String sql = "UPDATE mahasiswa SET "
                 + "nama = ? "
                 + "WHERE nim = ?";
 
@@ -117,7 +117,7 @@ public class modelMahasiswa {
             while (rs.next()) {
                 modelMahasiswa mahasiswa = new modelMahasiswa(
                         rs.getString("nim"),
-                        rs.getString("nama_mahasiswa")
+                        rs.getString("nama")
                 );
 
                 daftar.add(mahasiswa);

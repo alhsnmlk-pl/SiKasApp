@@ -76,7 +76,7 @@ public class modelPemasukan {
     //Tambah
     public boolean tambah() {
         String sql = "INSERT INTO pemasukan "
-                + "(id_pemasukan, tanggal, nominal, keterangan, id_pengguna) "
+                + "(id_pemasukan, tanggal, id_pengguna, nominal, keterangan) "
                 + "VALUES (?, ?, ?, ?, ?)";
 
         try {
@@ -85,9 +85,9 @@ public class modelPemasukan {
 
             ps.setString(1, idPemasukan);
             ps.setString(2, tanggal);
-            ps.setInt(3, nominal);
-            ps.setString(4, keterangan);
-            ps.setString(5, idPengguna);
+            ps.setString(3, "bc13c7ba-e3f2-11f1-aadf-7a1a172471ca");
+            ps.setInt(4, nominal);
+            ps.setString(5, keterangan);
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -99,7 +99,7 @@ public class modelPemasukan {
     //ubah
     public boolean ubah() {
         String sql = "UPDATE pemasukan SET "
-                + "tanggal = ?, nominal = ?, keterangan = ?, id_penguna = ? "
+                + "tanggal = ?, id_pengguna = ?, nominal = ?, keterangan = ? "
                 + "WHERE id_pemasukan = ?";
 
         try {
@@ -107,9 +107,9 @@ public class modelPemasukan {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, tanggal);
-            ps.setInt(2, nominal);
-            ps.setString(3, keterangan);
-            ps.setString(4, idPengguna);
+            ps.setString(2, "bc13c7ba-e3f2-11f1-aadf-7a1a172471ca");
+            ps.setInt(3, nominal);
+            ps.setString(4, keterangan);
             ps.setString(5, idPemasukan);
 
             return ps.executeUpdate() > 0;
