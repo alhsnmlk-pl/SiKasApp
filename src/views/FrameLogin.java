@@ -8,9 +8,11 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.ui.FlatLineBorder;
 import java.awt.Color;
 import java.awt.Insets;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import models.modelPengguna;
 
 /**
  *
@@ -64,7 +66,7 @@ public class FrameLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         pPassword = new javax.swing.JPanel();
@@ -181,12 +183,12 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(104, 121, 144));
         jLabel13.setText("Silakan  masuk  dengan  akun  Anda");
 
-        jButton1.setBackground(new java.awt.Color(13, 71, 160));
-        jButton1.setFont(new java.awt.Font("Plus Jakarta Text", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Login");
-        jButton1.setPreferredSize(new java.awt.Dimension(386, 59));
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        btnLogin.setBackground(new java.awt.Color(13, 71, 160));
+        btnLogin.setFont(new java.awt.Font("Plus Jakarta Text", 0, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Login");
+        btnLogin.setPreferredSize(new java.awt.Dimension(386, 59));
+        btnLogin.addActionListener(this::btnLoginActionPerformed);
 
         jLabel15.setFont(new java.awt.Font("Plus Jakarta Text Light", 0, 16)); // NOI18N
         jLabel15.setText("Username");
@@ -199,7 +201,6 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/password (1).png"))); // NOI18N
 
         tPassword.setFont(new java.awt.Font("Plus Jakarta Text", 0, 16)); // NOI18N
-        tPassword.setText("jPasswordField1");
         tPassword.setBorder(null);
 
         bMata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/mata silang.png"))); // NOI18N
@@ -273,7 +274,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -292,7 +293,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
@@ -311,11 +312,25 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bMataActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        new FrameMain().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        modelPengguna pengguna = new modelPengguna();
+        
+        pengguna.setUsername(tUsername.getText());
+        pengguna.setPassword(tPassword.getText());
+        
+        boolean login = pengguna.login();
+        
+        if (login == true){
+            new FrameMain().setVisible(true);
+            dispose();
+        }else {
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "Maaf username atau password salah", 
+                    "Login gagal", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,7 +359,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton bMata;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

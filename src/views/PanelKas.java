@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import models.Session;
 import models.modelPembayaranKas;
 
 /**
@@ -71,7 +72,7 @@ public class PanelKas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel21 = new javax.swing.JLabel();
+        tID = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -109,10 +110,8 @@ public class PanelKas extends javax.swing.JPanel {
         btnBayar = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         cStatus = new javax.swing.JComboBox<>();
-        tID = new javax.swing.JLabel();
         bUbah1 = new javax.swing.JButton();
         bHapus = new javax.swing.JButton();
-        tPengguna = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -123,8 +122,6 @@ public class PanelKas extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         btnCetak = new javax.swing.JButton();
-
-        jLabel21.setText("jLabel21");
 
         setLayout(new java.awt.CardLayout());
 
@@ -383,10 +380,7 @@ public class PanelKas extends javax.swing.JPanel {
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel14Layout.createSequentialGroup()
                                         .addComponent(jLabel11)
-                                        .addGap(53, 53, 53)
-                                        .addComponent(tPengguna, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(142, 142, 142))
                                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(cStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)))))
@@ -409,10 +403,7 @@ public class PanelKas extends javax.swing.JPanel {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tPengguna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addGap(12, 12, 12)
@@ -548,7 +539,7 @@ public class PanelKas extends javax.swing.JPanel {
                 cMahasiswa.getSelectedItem().toString(),
                 Integer.parseInt(tJumlahBayar.getText()),
                 cStatus.getSelectedItem().toString(),
-                tID.getText()
+                Session.idPengguna
         );
 
         boolean simpan = kas.tambah();
@@ -593,7 +584,6 @@ public class PanelKas extends javax.swing.JPanel {
         cMahasiswa.setSelectedItem(nama);
         tJumlahBayar.setText(jumlah);
         cStatus.setSelectedItem(status);
-        tPengguna.setText(pengguna);
     }//GEN-LAST:event_tPembayaranKasMouseClicked
 
     private void bUbah1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUbah1ActionPerformed
@@ -627,7 +617,7 @@ public class PanelKas extends javax.swing.JPanel {
                 cMahasiswa.getSelectedItem().toString(),
                 Integer.parseInt(tJumlahBayar.getText()),
                 cStatus.getSelectedItem().toString(),
-                tPengguna.getText()
+                Session.idPengguna
         );
 
         boolean hapus = kas.hapus();
@@ -661,7 +651,6 @@ public class PanelKas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -691,7 +680,6 @@ public class PanelKas extends javax.swing.JPanel {
     private javax.swing.JLabel tID;
     private javax.swing.JTextField tJumlahBayar;
     private javax.swing.JTable tPembayaranKas;
-    private javax.swing.JLabel tPengguna;
     private com.toedter.calendar.JCalendar tPeriode;
     private com.toedter.calendar.JDateChooser tTanggal;
     // End of variables declaration//GEN-END:variables

@@ -2,10 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.JLabel" name="jLabel21">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel21"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="tID">
     </Component>
   </NonVisualComponents>
   <AuxValues>
@@ -467,10 +464,7 @@
                                                       <Group type="103" groupAlignment="1" attributes="0">
                                                           <Group type="102" attributes="0">
                                                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                              <Component id="tPengguna" min="-2" pref="32" max="-2" attributes="0"/>
-                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Component id="tID" min="-2" pref="39" max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Group type="103" groupAlignment="1" attributes="0">
                                                               <Component id="cStatus" alignment="1" min="-2" pref="306" max="-2" attributes="0"/>
@@ -507,11 +501,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel11" max="32767" attributes="0"/>
-                                          <Component id="tID" max="32767" attributes="0"/>
-                                          <Component id="tPengguna" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -647,8 +637,6 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="tID">
-                            </Component>
                             <Component class="javax.swing.JButton" name="bUbah1">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -682,8 +670,6 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bHapusActionPerformed"/>
                               </Events>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="tPengguna">
                             </Component>
                           </SubComponents>
                         </Container>

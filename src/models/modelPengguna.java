@@ -1,4 +1,4 @@
-/*
+  /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -111,7 +111,7 @@ public class modelPengguna {
         try {
             Connection conn = koneksi.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            
+
             ps.setString(1, namaPengguna);
             ps.setString(2, username);
 
@@ -131,6 +131,42 @@ public class modelPengguna {
         }
 
     }
+
+    public boolean login() {
+        String sql = "SELECT * FROM pengguna WHERE username = ? AND password = md5(?)";
+
+        try {
+            Connection conn = koneksi.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Session.idPengguna = (rs.getString("id_pengguna"));
+                Session.namaPengguna = (rs.getString("nama_pengguna"));
+                Session.username = (rs.getString("username"));
+                Session.role = (rs.getString("role"));
+                Session.password = (rs.getString("password"));
+
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Username dan Password Salah: " + e.getMessage());
+        }
+        return false;
+    }
+
+    public void logout() {
+        Session.idPengguna = null;
+        Session.namaPengguna = null;
+        Session.username = null;
+        Session.role = null;
+        Session.password = null;
+    }
+    
 
     //Hapus
     public boolean hapus() {

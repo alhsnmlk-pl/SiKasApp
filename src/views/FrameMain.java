@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import models.Session;
+import models.modelPengguna;
 
 /**
  *
@@ -33,6 +35,18 @@ public class FrameMain extends javax.swing.JFrame {
         setActiveMenu(btnDashboard);
         inisiasiPanel();
         cardLayout.show(mainContainer, "dashboard");
+        
+        if (Session.isLogin()){
+            if ("ketua".equals(Session.role)){
+                btnMhs.setVisible(false);
+                btnPemasukan.setVisible(false);
+                btnBayarKas.setVisible(false);
+                btnPengeluaran.setVisible(false);
+            }
+        }
+        lblUsername.setText(Session.username);
+        lblRole.setText(Session.role);
+        lblProfil.setText(Session.namaPengguna.substring(0, 1).toUpperCase());
     }
     
     void panelLengkung(JPanel p) {
@@ -91,9 +105,9 @@ public class FrameMain extends javax.swing.JFrame {
         JPanel97 = new javax.swing.JPanel();
         lblProfil = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        lblUser = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
         lblRole = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblLogout = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
@@ -188,20 +202,25 @@ public class FrameMain extends javax.swing.JFrame {
         jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.GridLayout(2, 1));
 
-        lblUser.setFont(new java.awt.Font("Plus Jakarta Sans", 1, 13)); // NOI18N
-        lblUser.setForeground(new java.awt.Color(255, 255, 255));
-        lblUser.setText("Sirdzat Iman");
-        jPanel5.add(lblUser);
+        lblUsername.setFont(new java.awt.Font("Plus Jakarta Sans", 1, 13)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsername.setText("Sirdzat Iman");
+        jPanel5.add(lblUsername);
 
         lblRole.setFont(new java.awt.Font("Plus Jakarta Sans", 0, 11)); // NOI18N
         lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setText("Bendahara 1");
         jPanel5.add(lblRole);
 
-        jLabel7.setFont(new java.awt.Font("Plus Jakarta Sans", 1, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(9, 56, 139));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/btnLogout.png"))); // NOI18N
+        lblLogout.setFont(new java.awt.Font("Plus Jakarta Sans", 1, 20)); // NOI18N
+        lblLogout.setForeground(new java.awt.Color(9, 56, 139));
+        lblLogout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/btnLogout.png"))); // NOI18N
+        lblLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoutMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout userLogContainerLayout = new javax.swing.GroupLayout(userLogContainer);
         userLogContainer.setLayout(userLogContainerLayout);
@@ -219,7 +238,7 @@ public class FrameMain extends javax.swing.JFrame {
             .addGroup(userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userLogContainerLayout.createSequentialGroup()
                     .addContainerGap(169, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
         userLogContainerLayout.setVerticalGroup(
@@ -236,7 +255,7 @@ public class FrameMain extends javax.swing.JFrame {
             .addGroup(userLogContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(userLogContainerLayout.createSequentialGroup()
                     .addGap(17, 17, 17)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                     .addGap(17, 17, 17)))
         );
 
@@ -266,7 +285,6 @@ public class FrameMain extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 30, 1, 30));
         jPanel6.setMinimumSize(new java.awt.Dimension(135, 300));
         jPanel6.setPreferredSize(new java.awt.Dimension(256, 375));
-        jPanel6.setLayout(new java.awt.GridLayout(7, 1, 8, 8));
 
         btnDashboard.setBackground(new java.awt.Color(13, 71, 160));
         btnDashboard.setFont(new java.awt.Font("Plus Jakarta Sans SemiBold", 0, 14)); // NOI18N
@@ -278,6 +296,9 @@ public class FrameMain extends javax.swing.JFrame {
         btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnDashboard.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnDashboard.setIconTextGap(12);
+        btnDashboard.setMaximumSize(new java.awt.Dimension(196, 48));
+        btnDashboard.setMinimumSize(new java.awt.Dimension(196, 48));
+        btnDashboard.setPreferredSize(new java.awt.Dimension(196, 48));
         btnDashboard.setRolloverEnabled(false);
         btnDashboard.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconDashboardActive.png"))); // NOI18N
         btnDashboard.addActionListener(this::btnDashboardActionPerformed);
@@ -293,6 +314,9 @@ public class FrameMain extends javax.swing.JFrame {
         btnMhs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnMhs.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnMhs.setIconTextGap(12);
+        btnMhs.setMaximumSize(new java.awt.Dimension(196, 48));
+        btnMhs.setMinimumSize(new java.awt.Dimension(196, 48));
+        btnMhs.setPreferredSize(new java.awt.Dimension(196, 48));
         btnMhs.setRolloverEnabled(false);
         btnMhs.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconMahasiswaActive.png"))); // NOI18N
         btnMhs.addActionListener(this::btnMhsActionPerformed);
@@ -306,6 +330,9 @@ public class FrameMain extends javax.swing.JFrame {
         btnPemasukan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPemasukan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnPemasukan.setIconTextGap(12);
+        btnPemasukan.setMaximumSize(new java.awt.Dimension(196, 48));
+        btnPemasukan.setMinimumSize(new java.awt.Dimension(196, 48));
+        btnPemasukan.setPreferredSize(new java.awt.Dimension(196, 48));
         btnPemasukan.setRolloverEnabled(false);
         btnPemasukan.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPemasukanActive.png"))); // NOI18N
         btnPemasukan.addActionListener(this::btnPemasukanActionPerformed);
@@ -319,6 +346,9 @@ public class FrameMain extends javax.swing.JFrame {
         btnBayarKas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnBayarKas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnBayarKas.setIconTextGap(12);
+        btnBayarKas.setMaximumSize(new java.awt.Dimension(196, 48));
+        btnBayarKas.setMinimumSize(new java.awt.Dimension(196, 48));
+        btnBayarKas.setPreferredSize(new java.awt.Dimension(196, 48));
         btnBayarKas.setRolloverEnabled(false);
         btnBayarKas.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPembayaranActive.png"))); // NOI18N
         btnBayarKas.addActionListener(this::btnBayarKasActionPerformed);
@@ -332,6 +362,9 @@ public class FrameMain extends javax.swing.JFrame {
         btnPengeluaran.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPengeluaran.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnPengeluaran.setIconTextGap(12);
+        btnPengeluaran.setMaximumSize(new java.awt.Dimension(196, 48));
+        btnPengeluaran.setMinimumSize(new java.awt.Dimension(196, 48));
+        btnPengeluaran.setPreferredSize(new java.awt.Dimension(196, 48));
         btnPengeluaran.setRolloverEnabled(false);
         btnPengeluaran.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPengeluaranActive.png"))); // NOI18N
         btnPengeluaran.addActionListener(this::btnPengeluaranActionPerformed);
@@ -345,6 +378,9 @@ public class FrameMain extends javax.swing.JFrame {
         btnLaporan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnLaporan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnLaporan.setIconTextGap(12);
+        btnLaporan.setMaximumSize(new java.awt.Dimension(196, 48));
+        btnLaporan.setMinimumSize(new java.awt.Dimension(196, 48));
+        btnLaporan.setPreferredSize(new java.awt.Dimension(196, 48));
         btnLaporan.setRolloverEnabled(false);
         btnLaporan.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconLaporanActiveActive.png"))); // NOI18N
         btnLaporan.addActionListener(this::btnLaporanActionPerformed);
@@ -358,6 +394,9 @@ public class FrameMain extends javax.swing.JFrame {
         btnPengguna.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPengguna.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnPengguna.setIconTextGap(12);
+        btnPengguna.setMaximumSize(new java.awt.Dimension(196, 48));
+        btnPengguna.setMinimumSize(new java.awt.Dimension(196, 48));
+        btnPengguna.setPreferredSize(new java.awt.Dimension(196, 48));
         btnPengguna.setRolloverEnabled(false);
         btnPengguna.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/iconPenggunaActive.png"))); // NOI18N
         btnPengguna.addActionListener(this::btnPenggunaActionPerformed);
@@ -418,6 +457,16 @@ public class FrameMain extends javax.swing.JFrame {
         cardLayout.show(mainContainer, "pengguna");
     }//GEN-LAST:event_btnPenggunaActionPerformed
 
+    private void lblLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMouseClicked
+        // TODO add your handling code here:
+        modelPengguna pengguna = new modelPengguna();
+        
+        pengguna.logout();
+        
+        new FrameLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_lblLogoutMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -449,16 +498,16 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel lblLogout;
     private javax.swing.JLabel lblProfil;
     private javax.swing.JLabel lblRole;
-    private javax.swing.JLabel lblUser;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel mainContainer;
     private javax.swing.JPanel sidebarContainer;
     private javax.swing.JPanel userLogContainer;

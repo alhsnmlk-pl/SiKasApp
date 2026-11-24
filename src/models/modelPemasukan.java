@@ -85,7 +85,7 @@ public class modelPemasukan {
 
             ps.setString(1, idPemasukan);
             ps.setString(2, tanggal);
-            ps.setString(3, "bc13c7ba-e3f2-11f1-aadf-7a1a172471ca");
+            ps.setString(3, idPengguna);
             ps.setInt(4, nominal);
             ps.setString(5, keterangan);
 
@@ -107,7 +107,7 @@ public class modelPemasukan {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, tanggal);
-            ps.setString(2, "bc13c7ba-e3f2-11f1-aadf-7a1a172471ca");
+            ps.setString(2, idPengguna);
             ps.setInt(3, nominal);
             ps.setString(4, keterangan);
             ps.setString(5, idPemasukan);

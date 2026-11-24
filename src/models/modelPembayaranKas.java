@@ -97,7 +97,7 @@ public class modelPembayaranKas {
             ps.setString(3, nim);
             ps.setInt(4, jumlahBayar);
             ps.setString(5, status);
-            ps.setString(6, "bc13c7ba-e3f2-11f1-aadf-7a1a172471ca");
+            ps.setString(6, idPengguna);
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -120,7 +120,7 @@ public class modelPembayaranKas {
             ps.setString(2, nim);
             ps.setInt(3, jumlahBayar);
             ps.setString(4, status);
-            ps.setString(5, "bc13c7ba-e3f2-11f1-aadf-7a1a172471ca");
+            ps.setString(5, idPengguna);
             ps.setString(6, idPembayaran);
 
             return ps.executeUpdate() > 0;

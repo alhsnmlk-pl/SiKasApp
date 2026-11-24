@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import models.Session;
 import models.modelPengeluaran;
 
 /**
@@ -30,7 +31,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     void reset(){
         tID.setText(null);
         tTanggal.setCalendar(null);
-        tPengguna.setText(null);
         tNominal.setText(null);
         tKeterangan.setText(null);
     }
@@ -72,7 +72,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelJudul = new javax.swing.JPanel();
         lblJudul = new javax.swing.JLabel();
         lblSubJudul = new javax.swing.JLabel();
-        tPengguna = new javax.swing.JLabel();
         panelKonten = new javax.swing.JPanel();
         panelTambahPengeluaran = new javax.swing.JPanel();
         lblTambahPengeluaran = new javax.swing.JLabel();
@@ -119,7 +118,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         panelJudul.add(lblSubJudul);
 
         panelHeader.add(panelJudul, java.awt.BorderLayout.WEST);
-        panelHeader.add(tPengguna, java.awt.BorderLayout.LINE_END);
 
         add(panelHeader, java.awt.BorderLayout.NORTH);
 
@@ -280,7 +278,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         modelPengeluaran pengeluaran = new modelPengeluaran(
                 UUID.randomUUID().toString(),
                 tanggal,
-                tPengguna.getText(),
+                Session.idPengguna,
                 Integer.parseInt(tNominal.getText()),
                 tKeterangan.getText()
         );
@@ -318,7 +316,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
             tTanggal.setDate(null);
         }
         
-        tPengguna.setText(pengguna);
         tNominal.setText(nominal);
         tKeterangan.setText(keterangan);
     }//GEN-LAST:event_tPengeluaranMouseClicked
@@ -329,7 +326,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         modelPengeluaran pengeluaran = new modelPengeluaran(
                 tID.getText(),
                 tanggal,
-                tPengguna.getText(),
+                Session.idPengguna,
                 Integer.parseInt(tNominal.getText()),
                 tKeterangan.getText()
         );
@@ -350,7 +347,7 @@ public class PanelPengeluaran extends javax.swing.JPanel {
         modelPengeluaran pengeluaran = new modelPengeluaran(
                 tID.getText(),
                 tanggal,
-                tPengguna.getText(),
+                Session.idPengguna,
                 Integer.parseInt(tNominal.getText()),
                 tKeterangan.getText()
         );
@@ -393,7 +390,6 @@ public class PanelPengeluaran extends javax.swing.JPanel {
     private javax.swing.JTextField tKeterangan;
     private javax.swing.JTextField tNominal;
     private javax.swing.JTable tPengeluaran;
-    private javax.swing.JLabel tPengguna;
     private com.toedter.calendar.JDateChooser tTanggal;
     // End of variables declaration//GEN-END:variables
 }
